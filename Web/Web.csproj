@@ -5703,6 +5703,25 @@
     <Content Include="Scripts\modules\buocxuly.js" />
     <Content Include="Scripts\modules\luongxuly.js" />
     <Content Include="Scripts\modules\trangthai-luongxuly.js" />
+    <Content Include="Uploads\News\0001.jpg" />
+    <Content Include="Uploads\News\admin.png" />
+    <Content Include="Uploads\News\anh-sach.png" />
+    <Content Include="Uploads\News\css-hữu dụng.txt" />
+    <Content Include="Uploads\News\img1.jpg" />
+    <Content Include="Uploads\News\img124092021-014009.jpg" />
+    <Content Include="Uploads\News\img2.jpg" />
+    <Content Include="Uploads\News\img224092021-013958.jpg" />
+    <Content Include="Uploads\News\img3.jpg" />
+    <Content Include="Uploads\News\imgasd.jpg" />
+    <Content Include="Uploads\News\imgasd24092021-014200.jpg" />
+    <Content Include="Uploads\News\layout-top.jpg" />
+    <Content Include="Uploads\News\news-110x110-1.jpg" />
+    <Content Include="Uploads\News\news-110x110-2.jpg" />
+    <Content Include="Uploads\News\news-110x110-4.jpg" />
+    <Content Include="Uploads\News\news-700x435-1.jpg" />
+    <Content Include="Uploads\News\news-800x500-1.jpg" />
+    <Content Include="Uploads\News\news-800x500-2.jpg" />
+    <Content Include="Uploads\News\news-800x500-3.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
