@@ -1,0 +1,122 @@
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_LayoutAce.cshtml";
+    ViewBag.ModuleName = "Quản lý News";
+    ViewBag.PageName = "Thông tin News";
+    ViewBag.ModuleCode = "News_detail";
+}
+@using Model.IdentityEntities
+@using Model.Entities
+@using Web.Areas.NewsArea.Models
+
+@model DetailVM
+@section ActionBarRight{
+    @*<a href="/NewsArea/News/Index" class="btn btn-primary btn-sm">Quay lại</a>*@
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table-info">
+
+            <tr>
+                <td>Phát hành</td>
+                @if (Model.objInfo.IsPublish != true)
+                {
+                    <td><i class="fa fa-close" style="color: red"></i> Không</td>
+                }
+                else
+                {
+
+                    <td><i class="fa fa-check" style="color: lightgreen"></i> Có</td>
+                }
+
+            </tr>
+            <tr>
+                <td>tiêu đề</td>
+                @if (Model.objInfo.Title != null)
+                {
+                    <td>@Model.objInfo.Title</td>
+                }
+                else
+                {
+                    <td style="color: orange">
+                        Chưa cập nhật
+                    </td>
+                }
+
+            </tr>
+            <tr>
+                <td>Loại thông tin sự kiện</td>
+                @if (Model.objInfo.nameloai != null)
+                {
+                    <td>@Model.objInfo.nameloai</td>
+                }
+                else
+                {
+                    <td style="color: orange">
+                        Chưa cập nhật
+                    </td>
+                }
+
+            </tr>
+            <tr>
+                <td>Mô tả</td>
+                @if (Model.objInfo.Description != null)
+                {
+                    <td>@Model.objInfo.Description</td>
+                }
+                else
+                {
+                    <td style="color: orange">
+                        Chưa cập nhật
+                    </td>
+                }
+
+            </tr>
+            <tr>
+                <td>Ảnh đại diện</td>
+                @if (Model.objInfo.ImageThumb != null)
+                {
+                    <td><img src="/@Model.objInfo.ImageThumb" width="350px" /></td>
+                }
+                else
+                {
+                    <td style="color: orange">
+                        Chưa cập nhật
+                    </td>
+                }
+
+            </tr>
+
+
+
+            <tr>
+                <td>File đính kèm</td>
+
+                @if (@Model.objInfo.AttachFileData != null)
+                {
+                    <td>
+                        <a download="" href="/@Model.objInfo.AttachFileData"><i class="fa fa-download"> Doawload file</i></a>
+                    </td>
+                }
+                else
+                {
+                    <td style="color: orange">
+                        Chưa cập nhật
+                    </td>
+                }
+
+            </tr>
+            <tr><td>Thời gian tạo</td><td>@Model.objInfo.CreatedDate</td></tr>
+            <tr><td>Thời gian cập nhật gần nhất</td><td>@Model.objInfo.UpdatedDate</td></tr>
+
+
+        </table>
+    </div>
+
+</div>
+
+<script>
+
+</script>
+@Scripts.Render("~/bundles/jqueryval")

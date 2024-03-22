@@ -1,0 +1,283 @@
+﻿@using Hinet
+@using Service.Common
+@using Newtonsoft.Json
+@using Web.Core
+@using CommonHelper.String
+@using Service.AppUserService.Dto
+@{
+    Layout = null;
+    List<Service.LinkService.Dto.EnvironmentEntityData> datas = ViewBag.Data;
+}
+
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 20px;
+    }
+
+    .hero-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 500px;
+        padding: 20px;
+        background-color: #f2f2f2;
+    }
+
+    .welcome-message {
+        max-width: 500px;
+    }
+
+    .mountain-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .boxes-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .box {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 10px;
+        width: 200px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .box-icon {
+        margin-bottom: 10px;
+    }
+
+        .box-icon img {
+            width: 50px;
+        }
+
+    .box-text {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .box-description {
+        color: #666;
+        font-size: 14px;
+    }
+
+    .box-list {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+        .box-list li {
+            padding: 5px;
+            background-color: #f2f2f2;
+            margin-bottom: 5px;
+        }
+
+    .hidden {
+        display: none;
+    }
+
+    .content-container {
+        height: 100%;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        background-color: #ffffffaa;
+        flex-grow: 1;
+    }
+
+        .content-container .box-system {
+            padding: 12px 0;
+        }
+
+        .content-container .system-title {
+            font-weight: bold;
+            font-size: 18px;
+            padding-bottom: 8px;
+            color: #007bff;
+        }
+
+        .content-container .link {
+            padding: 4px;
+        }
+
+            .content-container .link a {
+                color: black;
+                padding-left: 20px;
+                text-decoration: none;
+            }
+
+                .content-container .link a:hover {
+                    color: #007bff;
+                }
+
+    .box.active {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+    }
+
+        .box.active .box-description {
+            color: #fff;
+        }
+
+    main {
+        background-image: url(/Content/Img/bg.jpg);
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .box-environment {
+        display: none;
+    }
+
+        .box-environment.active {
+            display: block;
+        }
+
+    @@media (min-width: 576px) {
+        .container {
+            max-width: 540px;
+        }
+    }
+
+    @@media (min-width: 768px) {
+        .container {
+            max-width: 720px;
+        }
+    }
+
+    @@media (min-width: 992px) {
+        .container {
+            max-width: 960px;
+        }
+    }
+
+    @@media (min-width: 1200px) {
+        .container {
+            max-width: 1140px;
+        }
+    }
+</style>
+
+@{
+    var active = true;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Link manager</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Link manager</div>
+            <div class="nav-links">
+                @*<a href="#">Knowledge Records</a>*@
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="boxes-container">
+                @foreach (var item in datas)
+                {
+                    <div class="box @(active ? "active" : "")" id="box-@item.Environment.Id">
+                        <div class="box-icon">
+                            <img src="~/Content/Img/network.png" />
+                        </div>
+                        <div class="box-text">@item.Environment.Name</div>
+                        @*<div class="box-description">Raise new incident.</div>*@
+                    </div>
+                    active = false;
+                }
+            </div>
+            <div class="content-container">
+                @{active = true;}
+                @foreach (var item in datas)
+                {
+                    <div class="box-environment @(active ? "active":"") box-@item.Environment.Id">
+                        @foreach (var system in item.SystemEntityDatas)
+                        {
+                            <div class="box-system">
+                                <div class="system-title"> @system.SystemEntity.Name</div>
+                                @foreach (var link in system.Links)
+                                {
+                                    <div class="link">
+                                        <a href="@link.Href" target="_blank">@link.Href</a>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                    active = false;
+                }
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+
+    $('.box').click(function () {
+        $('.box').removeClass("active");
+        $(this).addClass("active");
+        var id = $(this).attr('id');
+        console.log(id);
+
+        $('.box-environment').hide();
+        $('.' + id).show();
+    });
+</script>
