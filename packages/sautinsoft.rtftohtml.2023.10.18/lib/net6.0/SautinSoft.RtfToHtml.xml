@@ -1,0 +1,1693 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>SautinSoft.RtfToHtml</name>
+  </assembly>
+  <members>
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.ByteBuffer.SetCacheSize(System.Int32)" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.RandomAccessFileOrArray.ReadShortLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.RandomAccessFileOrArray.ReadUnsignedShortLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.RandomAccessFileOrArray.ReadCharLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.RandomAccessFileOrArray.ReadIntLE" -->
+    <!-- Badly formed XML comment ignored for member "M:SautinSoft.Document.RandomAccessFileOrArray.ReadUnsignedInt" -->
+    <member name="T:SautinSoft.RtfToHtml">
+      <summary>
+            RTF to HTML .Net is C# assembly which provides API to convert Text, DOCX and RTF documents to HTML 3.2, 4.01 + with CSS, HTML5, XHTML 1.01.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\03. Text to HTML\06. Convert Text to HTML using MemoryStream\Sample.cs" title="Convert Text to HTML using MemoryStream in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\03. Text to HTML\06. Convert Text to HTML using MemoryStream\Sample.vb" title="Convert Text to HTML using MemoryStream in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.LengthUnit">
+      <summary>
+            Represents the measurement unit for measuring length or distance.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.LengthUnit.Point">
+      <summary>
+            Point (1 inch is equal as 72 points).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.LengthUnit.Pixel">
+      <summary>
+            Pixel (1 inch is equal as 96 pixels).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.LengthUnit.Inch">
+      <summary>
+            Inch (1 inch is equal as 72 points).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.LengthUnit.Millimeter">
+      <summary>
+            Millimeter (10 millimeters are equal as 1¸centimeter).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.LengthUnit.Centimeter">
+      <summary>
+            Centimeter (1 inch is around 2.54 centimeters).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.LengthUnit.Pica">
+      <summary>
+            Pica (1 pica is equal as 12 points).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.LengthUnit.Twip">
+      <summary>
+            Twip (twentieth of a point, 1 point is equal as 20 twips).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.LengthUnit.Emu">
+      <summary>
+            English Metric Unit (1 point is equal as 12,700 EMUs).
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.Orientation">
+      <summary>
+            Specifies page orientation.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Orientation.Portrait">
+      <summary>
+            Portrait page orientation (narrow and tall).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Orientation.Landscape">
+      <summary>
+            Landscape page orientation (wide and short).
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.PaperType">
+      <summary>
+            Specifies paper size.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.A0">
+      <summary>
+            841 x 1189 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.A1">
+      <summary>
+            594 x 841 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.A2">
+      <summary>
+            420 x 594 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.A3">
+      <summary>
+            297 x 420 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.A4">
+      <summary>
+            210 x 297 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.A5">
+      <summary>
+            148 x 210 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.A6">
+      <summary>
+            105 x 148 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.A7">
+      <summary>
+            74 x 105 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.B0">
+      <summary>
+            1000 x 1414 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.B1">
+      <summary>
+            707 x 1000 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.B2">
+      <summary>
+            500 x 707 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.B3">
+      <summary>
+            353 x 500 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.B4">
+      <summary>
+            250 x 353 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.B5">
+      <summary>
+            176 x 250 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.B6">
+      <summary>
+            125 x 176 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.B7">
+      <summary>
+            88 x 125 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.C0">
+      <summary>
+            917 x 1297 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.C1">
+      <summary>
+            648 x 917 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.C2">
+      <summary>
+            458 x 648 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.C3">
+      <summary>
+            324 x 458 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.C4">
+      <summary>
+            229 x 324 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.C5">
+      <summary>
+            162 x 229 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.C6">
+      <summary>
+            114 x 162 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.C7">
+      <summary>
+            81 x 114 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.Letter">
+      <summary>
+            216 x 279 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.Legal">
+      <summary>
+            216 x 356 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.LedgerTabloid">
+      <summary>
+            279 x 432 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.Executive">
+      <summary>
+            190 x 254 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.Paper11x17">
+      <summary>
+            279 x 432 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.EnvelopeDL">
+      <summary>
+            110 x 220 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.EnvelopeC5">
+      <summary>
+            162 x 229 mm.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PaperType.EnvelopeC6">
+      <summary>
+            114 x 162 mm.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.CssExportMode">
+      <summary>
+            Specifies how CSS (Cascading Style Sheet) styles are exported to HTML.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\13. Set Css Stream\Sample.cs" title="Set Css Stream in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\13. Set Css Stream\Sample.vb" title="Set Css Stream in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.CssExportMode.Ignore">
+      <summary>
+            Ignore any styling information when generating a HTML.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.CssExportMode.Inline">
+      <summary>
+            CSS styles are written inline (as a value of the style attribute on every element).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.CssExportMode.Embedded">
+      <summary>
+            CSS styles are written separately from the content in a style sheet embedded in the HTML file.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.CssExportMode.External">
+      <summary>
+            CSS styles are written separately from the content in a style sheet in an external file. 
+            The HTML file links the style sheet.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HtmlListExportMode">
+      <summary>
+            Specifies how list labels are exported to HTML and MHTML.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\18. ListExportMode\Sample.cs" title="ListExportMode in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\18. ListExportMode\Sample.vb" title="ListExportMode in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlListExportMode.Auto">
+      <summary>
+            Outputs list labels in auto mode. Uses HTML native elements when possible.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlListExportMode.AsInlineText">
+      <summary>
+            Outputs all list labels as inline text.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlListExportMode.ByHtmlTags">
+      <summary>
+            Outputs all list labels as HTML native elements.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HtmlHeadersFootersExportMode">
+      <summary>
+            Specifies how headers and footers are exported to HTML and MHTML.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\19. HeadersFootersExportMode\Sample.cs" title="Headers and Footers export mode in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\19. HeadersFootersExportMode\Sample.vb" title="Headers and Footers export mode in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlHeadersFootersExportMode.None">
+      <summary>
+            Headers and footers are not exported.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlHeadersFootersExportMode.PerSection">
+      <summary>
+            Primary headers and footers are exported at the beginning and the end of each section.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlHeadersFootersExportMode.FirstSectionHeaderLastSectionFooter">
+      <summary>
+            Primary header of the first section is exported at the beginning of the document and
+            primary footer is at the end.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlHeadersFootersExportMode.FirstPageHeaderFooterPerSection">
+      <summary>
+            First page header and footer are exported at the beginning and the end of each section.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HtmlVersion">
+      <summary>
+            Indicates the version of HTML is used when saving the document to Html and Mhtml formats.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\03. Set HTML version\Sample.cs" title="Set HTML version in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\03. Set HTML version\Sample.vb" title="Set HTML version in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlVersion.Xhtml">
+      <summary>
+            Saves the document in compliance with the XHTML 1.0 Transitional standard.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlVersion.Html5">
+      <summary>
+            Saves the document in compliance with the HTML 5 standard.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlVersion.Html401">
+      <summary>
+            Saves the document in compliance with the HTML 4.01 standard.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlVersion.Html32">
+      <summary>
+            Saves the document in compliance with the HTML 3.2 standard.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HtmlSplitCriteria">
+      <summary>
+            Specifies how the document is split into parts when saving to Html format.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\21. SplitCriteria and HeadingLevel\Sample.cs" title="SplitCriteria and HeadingLevel in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\21. SplitCriteria and HeadingLevel\Sample.vb" title="SplitCriteria and HeadingLevel in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlSplitCriteria.None">
+      <summary>
+            The document is not split.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlSplitCriteria.PageBreak">
+      <summary>
+            The document is split into parts at explicit page breaks.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlSplitCriteria.ColumnBreak">
+      <summary>
+            The document is split into parts at column breaks. 
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlSplitCriteria.SectionBreak">
+      <summary>
+            The document is split into parts at a section break of any type.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlSplitCriteria.HeadingParagraph">
+      <summary>
+            The document is split into parts at a paragraph formatted using a heading style
+            <b>Heading 1</b>, <b>Heading 2</b> etc. 
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.PictureFormat">
+      <summary>
+            Specifies the file format for a picture.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\11. Set images format\Sample.cs" title="Set images format using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\11. Set images format\Sample.vb" title="Set images format using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PictureFormat.Unknown">
+      <summary>
+            An unknown image type or image type that cannot be directly stored inside a
+            Microsoft Word document. 
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PictureFormat.Jpeg">
+      <summary>
+            JPEG JFIF.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PictureFormat.Gif">
+      <summary>
+            Graphics Interchange Format.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PictureFormat.Png">
+      <summary>
+            Portable Network Graphics.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PictureFormat.Tiff">
+      <summary>
+            Tagged Image File Format.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PictureFormat.Emf">
+      <summary>
+            Windows Enhanced Metafile.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PictureFormat.Wmf">
+      <summary>
+            Windows Metafile.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.PictureFormat.Bmp">
+      <summary>
+            Windows Bitmap.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HorizontalPositionType">
+      <summary>
+            Represents a set of possible relative horizontal positions for the parent floating element.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionType.Absolute">
+      <summary>
+            Specifies that the parent object should have absolute horizontal positioning
+            with respect to the anchor settings.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionType.Left">
+      <summary>
+            Specifies that the parent object shall be left aligned with respect to the anchor settings.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionType.Center">
+      <summary>
+            Specifies that the parent object shall be centered with respect to the anchor settings.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionType.Right">
+      <summary>
+            Specifies that the parent object shall be right aligned with respect to the anchor settings.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionType.Inside">
+      <summary>
+            Specifies that the parent object shall be inside of the anchor object.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionType.Outside">
+      <summary>
+            Specifies that the parent object shall be outside of the anchor object.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HorizontalPositionAnchor">
+      <summary>
+            Represents a horizontal position to which the parent object has been anchored in the document.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionAnchor.Margin">
+      <summary>
+            Specifies that the parent object shall be horizontally anchored to the text margins.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionAnchor.Page">
+      <summary>
+            Specifies that the parent object shall be horizontally anchored to the page edge.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionAnchor.Column">
+      <summary>
+            Specifies that the parent object shall be horizontally anchored to the text extents.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionAnchor.Character">
+      <summary>
+            Specifies that the horizontal positioning shall be relative to the position 
+            of the anchor within its text.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionAnchor.LeftMargin">
+      <summary>
+            Specifies that the horizontal positioning shall be relative to the left margin of the page.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionAnchor.RightMargin">
+      <summary>
+            Specifies that the horizontal positioning shall be relative to the right margin of the page.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionAnchor.InsideMargin">
+      <summary>
+            Specifies that the horizontal positioning shall be relative to the inside margin 
+            of the current page (the left margin on odd pages, right on even pages).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HorizontalPositionAnchor.OutsideMargin">
+      <summary>
+            Specifies that the horizontal positioning shall be relative to the outside margin
+            of the current page (the right margin on odd pages, left on even pages).
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.VerticalPositionType">
+      <summary>
+            Represents a set of possible relative vertical positions for the parent floating element.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionType.Absolute">
+      <summary>
+            Specifies that the parent object should have absolute vertical positioning with respect to the anchor settings.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionType.Top">
+      <summary>
+            Specifies that the parent object shall be vertically aligned to the top edge of the anchor object.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionType.Center">
+      <summary>
+            Specifies that the parent object shall be vertically centered with respect to the anchor object.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionType.Bottom">
+      <summary>
+            Specifies that the parent object shall be vertically aligned to the bottom edge of the anchor object.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionType.Inside">
+      <summary>
+            Specifies that the parent object shall be vertically aligned to the edge of the anchor object, and positioned inside that object.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionType.Outside">
+      <summary>
+            Specifies that the parent object shall be vertically aligned to the edge of the anchor object, and positioned outside that object.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.VerticalPositionAnchor">
+      <summary>
+            Represents a vertical position to which the parent object has been anchored in the document.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionAnchor.Margin">
+      <summary>
+            Specifies that the parent object shall be vertically anchored to the text margins.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionAnchor.Page">
+      <summary>
+            Specifies that the parent object shall be vertically anchored to the page edge.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionAnchor.Paragraph">
+      <summary>
+            Specifies that the parent object shall be vertically anchored to the text extents.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionAnchor.Line">
+      <summary>
+            Specifies that the vertical positioning shall be relative to the line containing the anchor character.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionAnchor.TopMargin">
+      <summary>
+            Specifies that the vertical positioning shall be relative to the top margin of the current page.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionAnchor.BottomMargin">
+      <summary>
+            Specifies that the vertical positioning shall be relative to the bottom margin of the current page.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionAnchor.InsideMargin">
+      <summary>
+            Specifies that the vertical positioning shall be relative to the inside margin of the current page.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.VerticalPositionAnchor.OutsideMargin">
+      <summary>
+            Specifies that the vertical positioning shall be relative to the outside margin of the current page.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.BorderStyle">
+      <summary>
+            Specifies line style for a border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Nil">
+      <summary>
+            No border specified.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.None">
+      <summary>
+            No border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Dotted">
+      <summary>
+            Dotted line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Dashed">
+      <summary>
+            Dashed line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Single">
+      <summary>
+            Single line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Thick">
+      <summary>
+            Thick line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Double">
+      <summary>
+            Double line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.DotDash">
+      <summary>
+             Dot - dash line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.DotDotDash">
+      <summary>
+            Dot - dot - dash line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Triple">
+      <summary>
+            Triple line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.ThinThickSmallGap">
+      <summary>
+            Thin - thick small gap line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.ThickThinSmallGap">
+      <summary>
+            Thick - thin small gap line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.ThinThickThinSmallGap">
+      <summary>
+            Thin - thick - thin small gap line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.ThinThickMediumGap">
+      <summary>
+            Thin - thick medium gap line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.ThickThinMediumGap">
+      <summary>
+            Thick - thin medium gap line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.ThinThickThinMediumGap">
+      <summary>
+            Thin - thick - thin medium gap line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.ThinThickLargeGap">
+      <summary>
+            Thin - thick large gap line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.ThickThinLargeGap">
+      <summary>
+            Thick - thin large gap line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.ThinThickThinLargeGap">
+      <summary>
+            Thin - thick - thin large gap line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Wave">
+      <summary>
+            Wave line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.DoubleWave">
+      <summary>
+            Double wave line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.DashSmallGap">
+      <summary>
+            Dashed line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.DashDotStroked">
+      <summary>
+            Dash - dot strokes line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Emboss3D">
+      <summary>
+            3D embossed line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Engrave3D">
+      <summary>
+            3D engraved line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Outset">
+      <summary>
+            Outset line border.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.BorderStyle.Inset">
+      <summary>
+            Inset line border.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.TabStopAlignment">
+      <summary>
+            Specifies the alignment/type of a tab stop.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabStopAlignment.None">
+      <summary>
+            Clears any tab stop in this position.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabStopAlignment.Left">
+      <summary>
+            Left-aligns the text after the tab stop.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabStopAlignment.Center">
+      <summary>
+            Centers the text around the tab stop.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabStopAlignment.Right">
+      <summary>
+            Right-aligns the text at the tab stop.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabStopAlignment.Decimal">
+      <summary>
+            Aligns the text at the decimal dot.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabStopAlignment.Bar">
+      <summary>
+            Draws a vertical bar at the tab stop position.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabStopAlignment.List">
+      <summary>
+            The tab is a delimiter between the number/bullet and text in a list item.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.TabCharacterLeader">
+      <summary>
+            Specifies the type of the leader line displayed under the tab character.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabCharacterLeader.None">
+      <summary>
+            Specifies that there shall be no leader character.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabCharacterLeader.Dot">
+      <summary>
+            Specifies that the leader character shall be a dot.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabCharacterLeader.Hyphen">
+      <summary>
+            Specifies that the leader character shall be a hyphen.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.TabCharacterLeader.Underscore">
+      <summary>
+            Specifies that the leader character shall be an underscore.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.AbsolutePositionTabAlignment">
+      <summary>
+            Specifies the alignment of an absolutely positioned tab character.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.AbsolutePositionTabAlignment.Left">
+      <summary>
+            Specifies that the positional tab should be left aligned.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.AbsolutePositionTabAlignment.Center">
+      <summary>
+            Specifies that the positional tab should be center aligned.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.AbsolutePositionTabAlignment.Right">
+      <summary>
+            Specifies that the positional tab should be right aligned.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.AbsolutePositionTabAnchor">
+      <summary>
+            Specifies the possible extents which can be used to calculate the absolute positioning 
+            of the positional tab character.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.AbsolutePositionTabAnchor.Indent">
+      <summary>
+            Specifies that the absolute positioning of the tab shall be relative to the indents. 
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.AbsolutePositionTabAnchor.Margin">
+      <summary>
+            Specifies that the absolute positioning of the tab shall be relative to the margins.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HtmlDocumentPartSavingArgs">
+      <summary>
+            Provides data for the <see cref="M:SautinSoft.Document.IHtmlDocumentPartSavingCallback.PartSaving(SautinSoft.Document.HtmlDocumentPartSavingArgs)" /> event.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlDocumentPartSavingArgs.PartFileName">
+      <summary>
+            Gets or sets the file name (without path) where the part will be saved to.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlDocumentPartSavingArgs.PartStream">
+      <summary>
+            Allows to specify the stream where the part will be saved to.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlDocumentPartSavingArgs.KeepPartStreamOpen">
+      <summary>
+            Specifies whether keep the stream open or close it after saving a part.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HtmlFixedSaveOptions">
+      <summary>
+            Represents options for saving to fixed HyperText Markup Language (HTML) format.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\01. Fixed and Flowing HTML\Sample.cs" title="Fixed and Flowing HTML in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\01. Fixed and Flowing HTML\Sample.vb" title="Fixed and Flowing HTML in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFixedSaveOptions.PageMargins">
+      <summary>
+            Specifies the margins around pages.
+            Default value is 10 points.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\16. PageMargins\Sample.cs" title="How to set page margins using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\16. PageMargins\Sample.vb" title="How to set page margins using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFixedSaveOptions.PageBorder">
+      <summary>
+            Specifies whether border around pages should be shown. 
+            Default is true.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\14. Page Border\Sample.cs" title="How to set page border using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\14. Page Border\Sample.vb" title="How to set page border using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFixedSaveOptions.PageIndex">
+      <summary>
+            Gets or sets the 0-based index of the first page to save. Default is 0.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\15. PageIndex and PageCount\Sample.cs" title="PageIndex and PageCount using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\15. PageIndex and PageCount\Sample.vb" title="PageIndex and PageCount using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFixedSaveOptions.PageCount">
+      <summary>
+            Gets or sets the number of pages to save.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\15. PageIndex and PageCount\Sample.cs" title="PageIndex and PageCount using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\15. PageIndex and PageCount\Sample.vb" title="PageIndex and PageCount using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFixedSaveOptions.SelectedPages">
+      <summary>
+            Gets or sets a custom page 0-based index set for save.    
+            Setting <see cref="P:SautinSoft.Document.HtmlFixedSaveOptions.PageIndex" /> or 
+            <see cref="P:SautinSoft.Document.HtmlFixedSaveOptions.PageCount" /> properties are overrides 
+            <see cref="P:SautinSoft.Document.HtmlFixedSaveOptions.SelectedPages" />.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\17. SelectedPages\Sample.cs" title="SelectedPages using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\17. SelectedPages\Sample.vb" title="SelectedPages using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.HtmlFixedSaveOptions.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:SautinSoft.Document.HtmlFixedSaveOptions" /> class.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\01. Fixed and Flowing HTML\Sample.cs" title="Fixed and Flowing HTML in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\01. Fixed and Flowing HTML\Sample.vb" title="Fixed and Flowing HTML in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HtmlFlowingSaveOptions">
+      <summary>
+            Represents options for saving to flowing HyperText Markup Language (HTML) format.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\01. Fixed and Flowing HTML\Sample.cs" title="Fixed and Flowing HTML in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\01. Fixed and Flowing HTML\Sample.vb" title="Fixed and Flowing HTML in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFlowingSaveOptions.ListExportMode">
+      <summary>
+            Controls how list labels are output to HTML or MHTML.
+            Default value is <see cref="F:SautinSoft.Document.HtmlListExportMode.Auto" />.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\18. ListExportMode\Sample.cs" title="ListExportMode in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\18. ListExportMode\Sample.vb" title="ListExportMode in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFlowingSaveOptions.HeadersFootersExportMode">
+      <summary>
+            Specifies how headers and footers are output to HTML and MHTML. 
+            Default value is <see cref="F:SautinSoft.Document.HtmlHeadersFootersExportMode.PerSection" />.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\19. HeadersFootersExportMode\Sample.cs" title="Headers and Footers export mode in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\19. HeadersFootersExportMode\Sample.vb" title="Headers and Footers export mode in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFlowingSaveOptions.SplitCriteria">
+      <summary>
+            Specifies how the document should be split when saving to Html format. 
+            Default is <see cref="F:SautinSoft.Document.HtmlSplitCriteria.None" />.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\21. SplitCriteria and HeadingLevel\Sample.cs" title="SplitCriteria and HeadingLevel in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\21. SplitCriteria and HeadingLevel\Sample.vb" title="SplitCriteria and HeadingLevel in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFlowingSaveOptions.SplitHeadingLevel">
+      <summary>
+            Specifies the maximum level of headings at which to split the document.
+            Default value is 2.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\21. SplitCriteria and HeadingLevel\Sample.cs" title="SplitCriteria and HeadingLevel in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\21. SplitCriteria and HeadingLevel\Sample.vb" title="SplitCriteria and HeadingLevel in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFlowingSaveOptions.BuildNavigationPage">
+      <summary>
+            Whether to generate a navigation page (like a TOC - table of contents) or not. Default value: true.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\20. BuildNavigationPage\Sample.cs" title="Build Navigation Page in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\20. BuildNavigationPage\Sample.vb" title="Build Navigation Page in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlFlowingSaveOptions.PartSavingCallback">
+      <summary>
+            Allows to control how document parts are saved when a document is saved to HTML.
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.HtmlFlowingSaveOptions.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:SautinSoft.Document.HtmlFlowingSaveOptions" /> class.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\01. Fixed and Flowing HTML\Sample.cs" title="Fixed and Flowing HTML in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\01. Fixed and Flowing HTML\Sample.vb" title="Fixed and Flowing HTML in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HtmlImageSavingArgs">
+      <summary>
+            Provides data for the <see cref="M:SautinSoft.Document.IHtmlImageSavingCallback.ImageSaving(SautinSoft.Document.HtmlImageSavingArgs)" /> event.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\03. Text to HTML\01. Convert Text file to HTML file\Sample.cs" title="Convert Text file to HTML file in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\03. Text to HTML\01. Convert Text file to HTML file\Sample.vb" title="Convert Text file to HTML file in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlImageSavingArgs.ImageStream">
+      <summary>
+            Allows to specify the stream where the image will be saved to.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\02. DOCX to HTML\06. Convert DOCX to HTML using MemoryStream\Sample.cs" title="Convert DOCX to HTML using MemoryStream in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\02. DOCX to HTML\06. Convert DOCX to HTML using MemoryStream\Sample.vb" title="Convert DOCX to HTML using MemoryStream in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlImageSavingArgs.ImageFormat">
+      <summary>
+            Gets and sets a format of the image stored inside <see cref="P:SautinSoft.RtfToHtml.HtmlImageSavingArgs.ImageStream" /> property. Default value: <see cref="F:SautinSoft.RtfToHtml.PictureFormat.Unknown" />.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlImageSavingArgs.ImageFileName">
+      <summary>
+            Gets or sets the file name (without path) where the image will be saved to.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlImageSavingArgs.KeepImageStreamOpen">
+      <summary>
+            Specifies whether keep the stream open or close it after saving an image.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HtmlSaveOptions">
+      <summary>
+            Represents a base class for saving options to HyperText Markup Language (HTML) format.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\01. RTF to HTML\01. Convert RTF file to HTML file\Sample.cs" title="Convert RTF file to HTML file in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\01. RTF to HTML\01. Convert RTF file to HTML file\Sample.vb" title="Convert RTF file to HTML file in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.ContentType">
+      <summary>
+            Gets the content-type for HTML file format.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.SingleFontFamily">
+      <summary>
+            Sets or gets a single font family for a whole text in the HTML document. Default value: <see cref="F:System.String.Empty" />.
+            </summary>
+      <remarks>
+            By default each block of text will have the same font family as in the original document.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\08. Single font family\Sample.cs" title="Set single font family in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\08. Single font family\Sample.vb" title="Set single font family in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.SingleFontSize">
+      <summary>
+            Sets or gets a single font size in points (pt) for a whole text in the produced HTML document. Default value: null.
+            </summary>
+      <remarks>
+            By default each block of text will have the same font size as in the original document.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\09. Single font size\Sample.cs" title="Set single font size in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\09. Single font size\Sample.vb" title="Set single font size in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.SingleFontColor">
+      <summary>
+            Sets or gets a single font color for a whole text in the produced HTML document. Default value: null.
+            </summary>
+      <remarks>
+            By default each block of text will have the same font color as in the original document.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\07. Single font color\Sample.cs" title="Set single font color in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\07. Single font color\Sample.vb" title="Set single font color in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.Encoding">
+      <summary>
+            Gets or sets the encoding for the HTML file.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.Version">
+      <summary>
+            Specifies version of HTML standard that should be used when saving the document to HTML or MHTML.
+            Default value is <see cref="F:SautinSoft.Document.HtmlVersion.Xhtml" />.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\03. Set HTML version\Sample.cs" title="Set HTML version in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\03. Set HTML version\Sample.vb" title="Set HTML version in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.CssExportMode">
+      <summary>
+            Specifies how CSS (Cascading Style Sheet) styles are exported to HTML or MHTML. 
+            Default value is <see cref="F:SautinSoft.Document.CssExportMode.Inline" />.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\13. Set Css Stream\Sample.cs" title="Set Css Stream in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\13. Set Css Stream\Sample.vb" title="Set Css Stream in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.CssFileName">
+      <summary>
+            Specifies the path and the name of the Cascading Style Sheet (CSS) file 
+            written when a document is exported to HTML. Default is an empty string.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\13. Set Css Stream\Sample.cs" title="Set Css Stream in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\13. Set Css Stream\Sample.vb" title="Set Css Stream in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.CssStream">
+      <summary>
+            Allows to specify the stream where the CSS information will be saved to.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\13. Set Css Stream\Sample.cs" title="Set Css Stream in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\13. Set Css Stream\Sample.vb" title="Set Css Stream in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.KeepCssStreamOpen">
+      <summary>
+            Specifies whether keep the stream open or close it after saving an CSS information.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\13. Set Css Stream\Sample.cs" title="Set Css Stream in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\13. Set Css Stream\Sample.vb" title="Set Css Stream in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.EmbedImages">
+      <summary>
+            Gets or sets a value indicating whether images are embedded directly within the
+            HTML file in form of Base64 encoding. Default value: true.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\10. Embed images in HTML\Sample.cs" title="How to embed images in HTML using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\10. Embed images in HTML\Sample.vb" title="How to embed images in HTML using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.ImagesDirectoryPath">
+      <summary>
+            Gets or sets the physical directory where all images will be saved.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\04. Set images directory\Sample.cs" title="How to set images directory using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\04. Set images directory\Sample.vb" title="How to set images directory using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.ImagesDirectorySrcPath">
+      <summary>
+            Gets or sets the relative directory that will be used when referencing images in the HTML.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\04. Set images directory\Sample.cs" title="How to set images directory using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\04. Set images directory\Sample.vb" title="How to set images directory using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.ImageSavingCallback">
+      <summary>
+            Allows to control how images are saved when a document is saved to HTML.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\05. ImagesSavingCallback\Sample.cs" title="ImagesSavingCallback - set images name in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\05. ImagesSavingCallback\Sample.vb" title="ImagesSavingCallback - set images name in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.ProduceOnlyHtmlBody">
+      <summary>
+            Gets or sets a value to produce a complete HTML document or only between between &lt;body&gt;...&lt;/body&gt; tags. Default value: false.
+            </summary>
+      <remarks>
+            In case of 'True' you will get only HTML between &lt;body&gt;...&lt;/body&gt; tags.<br />
+            This property will be useful to merge multiply HTML documents into a single.
+            </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\06. Produce only HTML body\Sample.cs" title="Produce only HTML body in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\06. Produce only HTML body\Sample.vb" title="Produce only HTML body in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.UseNumericCharacterReference">
+      <summary>
+            In case of 'true': Write the all characters in "<a href="http://en.wikipedia.org/wiki/Numeric_character_reference" target="_blank">NCR</a>" notation: &amp;#xxx;. In case of 'false': Write the all characters as Unicode (recommended). Default value: false.
+            </summary>
+      <remarks>
+            A numeric character reference (NCR) is a common markup construct used in SGML and other SGML-related markup languages such as HTML and XML. It consists of a short sequence of characters that, in turn, represent a single character from the Universal Character Set (UCS) of Unicode.<br /><br />
+            See details in <a href="http://en.wikipedia.org/wiki/Numeric_character_reference" target="_blank">Wikipedia ...</a></remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\22. Use Numeric Character Reference\Sample.cs" title="Use Numeric Character Reference in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\22. Use Numeric Character Reference\Sample.vb" title="Use Numeric Character Reference in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.Title">
+      <summary>
+            Gets and sets a title for the produced HTML document. Default value: "Untitled document".
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\02. Set Title\Sample.cs" title="Set document title using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\02. Set Title\Sample.vb" title="Set document title using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.HtmlSaveOptions.ImagesFormat">
+      <summary>
+            Specifies the image format in the document during the saving. Default value: <see cref="F:SautinSoft.RtfToHtml.HtmlSaveOptions.ImagesFormat.Auto" />.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlSaveOptions.ImagesFormat.Auto">
+      <summary>
+            Default. In this case will keep their original format. The Jpeg images will be stored using Jpeg codec, the all others as PNG.
+            </summary>
+      <remarks>
+            Together with this option you can also control jpeg quality, using the property <see cref="P:SautinSoft.RtfToHtml.HtmlSaveOptions.JpegQuality">EmbeddedJpegQuality</see>.
+            </remarks>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlSaveOptions.ImagesFormat.Jpeg">
+      <summary>
+            Force to convert all images into Jpeg format. Be careful: using Jpeg for images you can reduce the PDF size, but could lose the transparency.
+            </summary>
+      <remarks>
+            Together with this option you can also control jpeg quality, using the property <see cref="P:SautinSoft.RtfToHtml.HtmlSaveOptions.JpegQuality">EmbeddedJpegQuality</see>.
+            </remarks>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.HtmlSaveOptions.ImagesFormat.Png">
+      <summary>
+            Force to convert all images into Png format.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.JpegQuality">
+      <summary>
+            Gets and sets the value indicating Jpeg quality level. Affects only to the images which embedded in Jpeg format. Default value: 90.
+            </summary>
+      <remarks>
+        <p>The amount of JPEG compression should really depend on the usage purpose for the JPEG, and the contents of the JPEG.</p>
+        <p>The quality level one should choose when exporting an image to JPEG is highly dependent upon the kind of detail contained within the image.</p>
+        <p>An image of a smooth blue sky or a sunset sky with large areas of orange gradient should probably use a high quality setting, 90-100. An image that contains nothing but complex detail could probably get away with a quality setting of 50-60, possibly even lower.There is no single "best" JPEG compression setting, and depending on the type and complexity of detail(or lack of complexity and detail), you may find yourself using 40-60, 70-80, or 90-100 as appropriate for the photo(s) you are exporting.</p>
+        <p>Here is a test with quality from left to right: 10, 20, 30, 40, 55, 70, 80, 90, 100%.<br />File sizes for the full files are: 210k, 278k, 347k, 477k, 601k, 709k, 987k, 1.7M, 7M.</p>
+      </remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\12. Set jpeg quality\Sample.cs" title="Set jpeg quality using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\12. Set jpeg quality\Sample.vb" title="Set jpeg quality using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.HtmlSaveOptions.ImageFormat">
+      <summary>
+            Gets and sets the format to embed images in the saving document. Default value: <see cref="F:SautinSoft.RtfToHtml.HtmlSaveOptions.ImagesFormat.Auto" />.
+            </summary>
+      <remarks>Using this property together with the <see cref="P:SautinSoft.RtfToHtml.HtmlSaveOptions.JpegQuality">JpegQuality</see> allows you to reduce to size of the saved document.</remarks>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\12. Set jpeg quality\Sample.cs" title="Set jpeg quality using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\12. Set jpeg quality\Sample.vb" title="Set jpeg quality using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.HtmlSaveOptions.#ctor">
+      <summary>
+            Represents options for saving to flowing HyperText Markup Language (HTML) format.
+            </summary>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.IHtmlImageSavingCallback">
+      <summary>
+            Implement this interface if you want to control how SautinSoft.RtfToHtml saves images when 
+            saving a document to Html.
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.IHtmlImageSavingCallback.ImageSaving(SautinSoft.RtfToHtml.HtmlImageSavingArgs)">
+      <summary>
+            Called when Document .Net saves an image to HTML.
+            </summary>
+      <param name="args">Provides the data: image file name, image format, image stream and so forth.</param>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.IHtmlDocumentPartSavingCallback">
+      <summary>
+            Implement this interface if you want to receive notifications and control how SautinSoft.RtfToHtml saves 
+            document parts when exporting a document to Html.
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.IHtmlDocumentPartSavingCallback.PartSaving(SautinSoft.RtfToHtml.HtmlDocumentPartSavingArgs)">
+      <summary>
+            Called when Document .Net is about to save a document part.
+            </summary>
+      <param name="args">Provides the data: a file name; a stream where the part will be saved; specify to keep the stream open or close.</param>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.LengthUnitConverter">
+      <summary>
+            Utility class used for converting values between various 
+            <see cref="T:SautinSoft.RtfToHtml.LengthUnit" /> measurement units.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\16. PageMargins\Sample.cs" title="How to set page margins using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\16. PageMargins\Sample.vb" title="How to set page margins using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.LengthUnitConverter.Convert(System.Double,SautinSoft.RtfToHtml.LengthUnit,SautinSoft.RtfToHtml.LengthUnit)">
+      <summary>
+            Converts the specified length from <i>sourceUnit</i> measurement unit to 
+            <i>destinationUnit</i> measurement unit.
+            </summary>
+      <param name="length">The length that will be converted.</param>
+      <param name="sourceUnit">The source measurement unit.</param>
+      <param name="destinationUnit">The destination measurement unit.</param>
+      <returns>The converted value in the destination measurement units.</returns>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\04. Properties and Settings\16. PageMargins\Sample.cs" title="How to set page margins using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\04. Properties and Settings\16. PageMargins\Sample.vb" title="How to set page margins using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.Serial">
+      <summary>
+            Set your activation key.
+            </summary>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\05. Product Activation\01. Activation\Sample.cs" title="Product Activation using C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\05. Product Activation\01. Activation\Sample.vb" title="Product Activation using VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.SetLicense(System.String)">
+      <summary>
+        <br>Activate your copy after purchasing or use temporary license for delete trial message. ATTENTION: specify this property first of all before creating the instance of component!</br>
+        <br>Use it when you got own license. We offer two license types:</br>
+        <br>Permanent license from <see href="https://sautinsoft.com/order.php">sautinsoft.com</see> and</br>
+        <br>Temporary license from <see href="https://reg.sautinsoft.com">reg.sautinsoft.com</see>.</br>
+        <br>Have question? Ask us: <see href="mailto:support@sautinsoft.com">support@sautinsoft.com</see>.</br>
+      </summary>
+      <param name="license">A string which contains a license. To get a permanent license, visit <see href="https://sautinsoft.com/order.php">sautinsoft.com</see>. To get a temporary license, please use online form here: <see href="https://reg.sautinsoft.com" />.</param>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Convert(System.IO.Stream,System.IO.Stream,SautinSoft.RtfToHtml.HtmlSaveOptions)">
+      <summary>
+            Converts DOCX, RTF or Text document to HTML document using specified streams.
+            </summary>
+      <param name="inpStream">The stream from which to load an input document. Can contain DOCX, RTF or Text document.</param>
+      <param name="outStream">The stream in which to save the resulting HTML document.</param>
+      <param name="options">The HTML saving options: <see cref="T:SautinSoft.RtfToHtml.HtmlFlowingSaveOptions" /> or <see cref="T:SautinSoft.RtfToHtml.HtmlFixedSaveOptions" />. Default: <see cref="T:SautinSoft.RtfToHtml.HtmlFixedSaveOptions" />.</param>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\01. RTF to HTML\06. Convert RTF to HTML using MemoryStream\Sample.cs" title="Convert RTF to HTML using MemoryStream in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\01. RTF to HTML\06. Convert RTF to HTML using MemoryStream\Sample.vb" title="Convert RTF to HTML using MemoryStream in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Convert(System.String,System.String,SautinSoft.RtfToHtml.HtmlSaveOptions)">
+      <summary>
+            Converts DOCX, RTF or Text file to HTML file.
+            </summary>
+      <param name="inpFile">The file path the input DOCX, RTF or Text file.</param>
+      <param name="outFile">The local path to the HTML document.</param>
+      <param name="options">The HTML saving options: <see cref="T:SautinSoft.RtfToHtml.HtmlFlowingSaveOptions" /> or <see cref="T:SautinSoft.RtfToHtml.HtmlFixedSaveOptions" />. Default: <see cref="T:SautinSoft.RtfToHtml.HtmlFixedSaveOptions" />.</param>
+      <example>
+        <code lang="cs" source="..\Packages\RTF to HTML .Net\Code samples\CSharp\02. DOCX to HTML\01. Convert DOCX file to HTML file\Sample.cs" title="Convert DOCX file to HTML file in C#">
+        </code>
+        <code lang="vbnet" source="..\Packages\RTF to HTML .Net\Code samples\VB.Net\02. DOCX to HTML\01. Convert DOCX file to HTML file\Sample.vb" title="Convert DOCX file to HTML file in VB.Net">
+        </code>
+      </example>
+    </member>
+    <member name="T:SautinSoft.RtfToHtml.Color">
+      <summary>
+            Represents a color.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Black">
+      <summary>
+            Represents a black color (RGB = 0x000000).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Blue">
+      <summary>
+            Represents a blue color (RGB = 0x0000FF).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Brown">
+      <summary>
+            Represents a brown color (RGB = 0xA52A2A).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Cyan">
+      <summary>
+            Represents a cyan color (RGB = 0x00FFFF).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.DarkBlue">
+      <summary>
+            Represents a dark blue color (RGB = 0x000080).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.DarkCyan">
+      <summary>
+            Represents a dark cyan color (RGB = 0x008080).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.DarkGray">
+      <summary>
+            Represents a dark gray color (RGB = 0x808080).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.DarkGreen">
+      <summary>
+            Represents a dark green color (RGB = 0x008000).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.DarkMagenta">
+      <summary>
+            Represents a dark magenta color (RGB = 0x800080).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.DarkRed">
+      <summary>
+            Represents a dark red color (RGB = 0x800000).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.DarkYellow">
+      <summary>
+            Represents a dark yellow color(RGB = 0x808000).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Gray">
+      <summary>
+            Represents a gray color (RGB = 0x808080).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Green">
+      <summary>
+            Represents a green color (RGB = 0x00FF00).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.LightGray">
+      <summary>
+            Represents a light gray color (RGB = 0xC0C0C0).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Magenta">
+      <summary>
+            Represents a magenta color (RGB = 0xFF00FF).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Orange">
+      <summary>
+            Represents an orange color (RGB = 0xFFA500).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Pink">
+      <summary>
+            Represents a pink color (RGB = 0xFFC0CB).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Purple">
+      <summary>
+            Represents a purple color (RGB = 0x800080).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Red">
+      <summary>
+            Represents a red color (RGB = 0xFF0000).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.White">
+      <summary>
+            Represents a white color (RGB = 0xFFFFFF).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Yellow">
+      <summary>
+            Represents a yellow color(RGB = 0xFFFF00).
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Empty">
+      <summary>
+            Represents an empty color.
+            </summary>
+    </member>
+    <member name="F:SautinSoft.RtfToHtml.Color.Auto">
+      <summary>
+            Represents an auto color.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.Color.A">
+      <summary>
+            Gets the alpha component of this <c>Color</c> instance.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.Color.R">
+      <summary>
+            Gets the red component of this <c>Color</c> instance.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.Color.G">
+      <summary>
+            Gets the green component of this <c>Color</c> instance.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.Color.B">
+      <summary>
+            Gets the blue component of this <c>Color</c> instance.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.Color.IsEmpty">
+      <summary>
+            Gets a value indicating whether this <c>Color</c> instance is empty.
+            </summary>
+    </member>
+    <member name="P:SautinSoft.RtfToHtml.Color.IsAuto">
+      <summary>
+            Gets a value indicating whether this <c>Color</c> instance is auto.
+            </summary>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Color.op_Equality(SautinSoft.RtfToHtml.Color,SautinSoft.RtfToHtml.Color)">
+      <summary>
+            Determines whether <i>first</i> and <i>second</i> <see cref="T:SautinSoft.Document.Color" /> are equal.
+            </summary>
+      <param name="first">The first color.</param>
+      <param name="second">The second color.</param>
+      <returns>
+            true if <i>first</i> and <i>second</i> colors are equal; otherwise, false.
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Color.op_Inequality(SautinSoft.RtfToHtml.Color,SautinSoft.RtfToHtml.Color)">
+      <summary>
+            Determines whether <i>first</i> and <i>second</i> <see cref="T:SautinSoft.Document.Color" /> not equal.
+            </summary>
+      <param name="first">The first color.</param>
+      <param name="second">The second color.</param>
+      <returns>
+            true if <i>first</i> and <i>second</i> colors are not equal; otherwise, false.
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Color.Equals(System.Object)">
+      <summary>
+            Determines whether the specified <see cref="T:System.Object" /> is equal to this 
+            <see cref="T:SautinSoft.Document.Color" /> instance.
+            </summary>
+      <param name="obj">The <see cref="T:System.Object" /> to compare with this color instance.</param>
+      <returns>
+            true if the specified <see cref="T:System.Object" /> is a <see cref="T:SautinSoft.Document.Color" /> 
+            and is equal to this <see cref="T:SautinSoft.Document.Color" /> instance; otherwise, false.
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Color.Equals(SautinSoft.RtfToHtml.Color)">
+      <summary>
+            Determines whether the <i>other</i><see cref="T:SautinSoft.Document.Color" /> is equal
+            to this <see cref="T:SautinSoft.Document.Color" /> instance.
+            </summary>
+      <param name="other">The other color to compare with this color instance.</param>
+      <returns>
+            true if the <i>other</i><see cref="T:SautinSoft.Document.Color" /> is equal to this 
+            <see cref="T:SautinSoft.Document.Color" /> instance; otherwise, false.
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Color.GetHashCode">
+      <summary>
+            Gets a hash code for this <see cref="T:SautinSoft.Document.Color" /> instance.
+            </summary>
+      <returns>
+            An integer value that specifies a hash value for this 
+            <see cref="T:SautinSoft.Document.Color" /> instance.
+            </returns>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Color.#ctor(System.Int32)">
+      <summary>
+            Initializes a new instance of the <see cref="T:SautinSoft.Document.Color" /> struct.
+            </summary>
+      <param name="argb">
+            The integer that represents the color in the format [AA,RR,GG,BB] 
+            where AA is the byte that represents the alpha component,
+            RR is the byte that represents the red component, 
+            GG is the byte that represents the green component and 
+            BB is the byte that represents the blue component.
+            </param>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Color.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:SautinSoft.Document.Color" /> struct.
+            </summary>
+      <param name="rgbInHex">Represents the color in heximal format: "#RRGGBB". For example, "#ffddcc". Alpha component is set to "FF".</param>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Color.#ctor(System.Byte,System.Byte,System.Byte)">
+      <summary>
+            Initializes a new instance of the <see cref="T:SautinSoft.Document.Color" /> struct.
+            </summary>
+      <param name="red">The red component.</param>
+      <param name="green">The green component.</param>
+      <param name="blue">The blue component.</param>
+    </member>
+    <member name="M:SautinSoft.RtfToHtml.Color.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+      <summary>
+            Initializes a new instance of the <see cref="T:SautinSoft.Document.Color" /> struct.
+            </summary>
+      <param name="alpha">The alpha component.</param>
+      <param name="red">The red component.</param>
+      <param name="green">The green component.</param>
+      <param name="blue">The blue component.</param>
+    </member>
+  </members>
+</doc>

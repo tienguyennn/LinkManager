@@ -1,0 +1,765 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PDFtoImage</name>
+    </assembly>
+    <members>
+        <member name="T:PDFtoImage.Conversion">
+            <summary>
+            Provides methods to render PDFs into images.
+            </summary>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveJpeg(System.String,System.String,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a JPEG.
+            </summary>
+            <param name="imageFilename">The output image file path.</param>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveJpeg(System.IO.Stream,System.String,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a JPEG.
+            </summary>
+            <param name="imageStream">The output image stream.</param>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveJpeg(System.String,System.Byte[],System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a JPEG.
+            </summary>
+            <param name="imageFilename">The output image file path.</param>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveJpeg(System.IO.Stream,System.Byte[],System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a JPEG.
+            </summary>
+            <param name="imageStream">The output image stream.</param>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveJpeg(System.String,System.IO.Stream,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a JPEG.
+            </summary>
+            <param name="imageFilename">The output image file path.</param>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveJpeg(System.IO.Stream,System.IO.Stream,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a JPEG.
+            </summary>
+            <param name="imageStream">The output image stream.</param>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SavePng(System.String,System.String,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a PNG.
+            </summary>
+            <param name="imageFilename">The output image file path.</param>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SavePng(System.IO.Stream,System.String,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a PNG.
+            </summary>
+            <param name="imageStream">The output image stream.</param>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SavePng(System.String,System.Byte[],System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a PNG.
+            </summary>
+            <param name="imageFilename">The output image file path.</param>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SavePng(System.IO.Stream,System.Byte[],System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a PNG.
+            </summary>
+            <param name="imageStream">The output image stream.</param>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SavePng(System.String,System.IO.Stream,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a PNG.
+            </summary>
+            <param name="imageFilename">The output image file path.</param>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SavePng(System.IO.Stream,System.IO.Stream,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a PNG.
+            </summary>
+            <param name="imageStream">The output image stream.</param>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveWebp(System.String,System.String,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a bitmap.
+            </summary>
+            <param name="imageFilename">The output image file path.</param>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveWebp(System.IO.Stream,System.String,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a bitmap.
+            </summary>
+            <param name="imageStream">The output image stream.</param>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveWebp(System.String,System.Byte[],System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a bitmap.
+            </summary>
+            <param name="imageFilename">The output image file path.</param>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveWebp(System.IO.Stream,System.Byte[],System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a bitmap.
+            </summary>
+            <param name="imageStream">The output image stream.</param>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveWebp(System.String,System.IO.Stream,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a bitmap.
+            </summary>
+            <param name="imageFilename">The output image file path.</param>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.SaveWebp(System.IO.Stream,System.IO.Stream,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF and saves it as a bitmap.
+            </summary>
+            <param name="imageStream">The output image stream.</param>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+        </member>
+        <member name="M:PDFtoImage.Conversion.ToImage(System.String,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF into an image.
+            </summary>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+            <returns>The converted PDF page as an image.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.ToImage(System.Byte[],System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF into an image.
+            </summary>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+            <returns>The converted PDF page as an image.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.ToImage(System.IO.Stream,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF into an image.
+            </summary>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+            <returns>The rendered PDF page as an image.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.ToImage(System.IO.Stream,System.Boolean,System.String,System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders a single page of a given PDF into an image.
+            </summary>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="leaveOpen"><see langword="true"/> to leave the <paramref name="pdfStream"/> open after the PDF document is loaded; otherwise, <see langword="false"/>.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="page">The specific page to be converted.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the desired <paramref name="page"/>. Use <see langword="null"/> if the original width should be used.</param>
+            <param name="height">The height of the desired <paramref name="page"/>. Use <see langword="null"/> if the original height should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+            <returns>The rendered PDF page as an image.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.ToImages(System.String,System.String,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders all pages of a given PDF into images.
+            </summary>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the all pages. Use <see langword="null"/> if the original width (per page) should be used.</param>
+            <param name="height">The height of all pages. Use <see langword="null"/> if the original height (per page) should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+            <returns>The rendered PDF pages as images.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.ToImages(System.Byte[],System.String,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders all pages of a given PDF into images.
+            </summary>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the all pages. Use <see langword="null"/> if the original width (per page) should be used.</param>
+            <param name="height">The height of all pages. Use <see langword="null"/> if the original height (per page) should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+            <returns>The rendered PDF pages as images.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.ToImages(System.IO.Stream,System.String,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders all pages of a given PDF into images.
+            </summary>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the all pages. Use <see langword="null"/> if the original width (per page) should be used.</param>
+            <param name="height">The height of all pages. Use <see langword="null"/> if the original height (per page) should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+            <returns>The rendered PDF pages as images.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.ToImages(System.IO.Stream,System.Boolean,System.String,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean,PDFtoImage.PdfRotation)">
+            <summary>
+            Renders all pages of a given PDF into images.
+            </summary>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="leaveOpen"><see langword="true"/> to leave the <paramref name="pdfStream"/> open after the PDF document is loaded; otherwise, <see langword="false"/>.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <param name="dpi">The DPI scaling to use for rasterization of the PDF.</param>
+            <param name="width">The width of the all pages. Use <see langword="null"/> if the original width (per page) should be used.</param>
+            <param name="height">The height of all pages. Use <see langword="null"/> if the original height (per page) should be used.</param>
+            <param name="withAnnotations">Specifies whether annotations be rendered.</param>
+            <param name="withFormFill">Specifies whether form filling will be rendered.</param>
+            <param name="withAspectRatio">Specifies that <paramref name="width"/> or <paramref name="height"/> should be adjusted for aspect ratio (either one must be <see langword="null"/>).</param>
+            <param name="rotation">Specifies the rotation at 90 degree intervals.</param>
+            <returns>The rendered PDF pages as images.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageCount(System.String,System.String)">
+            <summary>
+            Returns the page count of a given PDF.
+            </summary>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page count of the given PDF.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageCount(System.Byte[],System.String)">
+            <summary>
+            Returns the page count of a given PDF.
+            </summary>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page count of the given PDF.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageCount(System.IO.Stream,System.String)">
+            <summary>
+            Returns the page count of a given PDF.
+            </summary>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page count of the given PDF.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageCount(System.IO.Stream,System.Boolean,System.String)">
+            <summary>
+            Returns the page count of a given PDF.
+            </summary>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="leaveOpen"><see langword="true"/> to leave the <paramref name="pdfStream"/> open after the PDF document is loaded; otherwise, <see langword="false"/>.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page count of the given PDF.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageSize(System.String,System.Int32,System.String)">
+            <summary>
+            Returns the PDF page size for a given page number.
+            </summary>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="page">The specific page to query the size for.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page size containing width and height.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageSize(System.Byte[],System.Int32,System.String)">
+            <summary>
+            Returns the PDF page size for a given page number.
+            </summary>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="page">The specific page to query the size for.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page size containing width and height.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageSize(System.IO.Stream,System.Int32,System.String)">
+            <summary>
+            Returns the PDF page size for a given page number.
+            </summary>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="page">The specific page to query the size for.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page size containing width and height.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageSize(System.IO.Stream,System.Boolean,System.Int32,System.String)">
+            <summary>
+            Returns the PDF page size for a given page number.
+            </summary>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="leaveOpen"><see langword="true"/> to leave the <paramref name="pdfStream"/> open after the PDF document is loaded; otherwise, <see langword="false"/>.</param>
+            <param name="page">The specific page to query the size for.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page size containing width and height.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageSizes(System.String,System.String)">
+            <summary>
+            Returns the sizes of all PDF pages.
+            </summary>
+            <param name="pdfAsBase64String">The PDF encoded as Base64.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page sizes containing width and height.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageSizes(System.Byte[],System.String)">
+            <summary>
+            Returns the sizes of all PDF pages.
+            </summary>
+            <param name="pdfAsByteArray">The PDF as a byte array.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page sizes containing width and height.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageSizes(System.IO.Stream,System.String)">
+            <summary>
+            Returns the sizes of all PDF pages.
+            </summary>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page sizes containing width and height.</returns>
+        </member>
+        <member name="M:PDFtoImage.Conversion.GetPageSizes(System.IO.Stream,System.Boolean,System.String)">
+            <summary>
+            Returns the sizes of all PDF pages.
+            </summary>
+            <param name="pdfStream">The PDF as a stream.</param>
+            <param name="leaveOpen"><see langword="true"/> to leave the <paramref name="pdfStream"/> open after the PDF document is loaded; otherwise, <see langword="false"/>.</param>
+            <param name="password">The password for opening the PDF. Use <see langword="null"/> if no password is needed.</param>
+            <returns>The page sizes containing width and height.</returns>
+        </member>
+        <member name="T:PDFtoImage.Exceptions.PdfCannotOpenFileException">
+            <summary>
+            Thrown if the PDF file was not found or could not be opened.
+            </summary>
+        </member>
+        <member name="M:PDFtoImage.Exceptions.PdfCannotOpenFileException.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="T:PDFtoImage.Exceptions.PdfException">
+            <summary>
+            Base class for all PDF related exceptions.
+            </summary>
+        </member>
+        <member name="M:PDFtoImage.Exceptions.PdfException.#ctor(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:PDFtoImage.Exceptions.PdfInvalidFormatException">
+            <summary>
+            Thrown if the PDF format is invalid or corrupted.
+            </summary>
+        </member>
+        <member name="M:PDFtoImage.Exceptions.PdfInvalidFormatException.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="T:PDFtoImage.Exceptions.PdfPageNotFoundException">
+            <summary>
+            Thrown if the PDF does not contain the given page number.
+            </summary>
+        </member>
+        <member name="M:PDFtoImage.Exceptions.PdfPageNotFoundException.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="T:PDFtoImage.Exceptions.PdfPasswordProtectedException">
+            <summary>
+            Thrown if the PDF requires a password and the given password was not given or incorrect.
+            </summary>
+        </member>
+        <member name="M:PDFtoImage.Exceptions.PdfPasswordProtectedException.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="T:PDFtoImage.Exceptions.PdfUnknownException">
+            <summary>
+            Thrown on unknown PDF errors.
+            </summary>
+        </member>
+        <member name="M:PDFtoImage.Exceptions.PdfUnknownException.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="T:PDFtoImage.Exceptions.PdfUnsupportedSecuritySchemeException">
+            <summary>
+            Thrown if the PDF file uses an unsupported security scheme.
+            </summary>
+        </member>
+        <member name="M:PDFtoImage.Exceptions.PdfUnsupportedSecuritySchemeException.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:PDFtoImage.PdfiumViewer.NativeMethods.LoadLibrary(System.String)">
+            <summary>Loads the specified module into the address space of the calling process. (LoadLibraryW)</summary>
+            <param name="lpLibFileName">
+            <para>The name of the module. This can be either a library module (a .dll file) or an executable module (an .exe file). If the specified module is an executable module, static imports are not loaded; instead, the module is loaded as if by <a href="https://docs.microsoft.com/windows/desktop/api/libloaderapi/nf-libloaderapi-loadlibraryexw">LoadLibraryEx</a> with the `DONT_RESOLVE_DLL_REFERENCES` flag. The name specified is the file name of the module and is not related to the name stored in the library module itself, as specified by the <b>LIBRARY</b> keyword in the module-definition (.def) file. If the string specifies a full path, the function searches only that path for the module. If the string specifies a relative path or a module name without a path, the function uses a standard search strategy to find the module; for more information, see the Remarks. If the function cannot find the  module, the function fails. When specifying a path, be sure to use backslashes (\\), not forward slashes (/). For more information about paths, see <a href="https://docs.microsoft.com/windows/desktop/FileIO/naming-a-file">Naming a File or Directory</a>. If the string specifies a module name without a path and the file name extension is omitted, the function appends the default library extension ".DLL" to the module name. To prevent the function from appending ".DLL" to the module name, include a trailing point character (.) in the module name string.</para>
+            <para><see href="https://learn.microsoft.com/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryw#parameters">Read more on docs.microsoft.com</see>.</para>
+            </param>
+            <returns>
+            <para>If the function succeeds, the return value is a handle to the module. If the function fails, the return value is NULL. To get extended error information, call <a href="https://docs.microsoft.com/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror">GetLastError</a>.</para>
+            </returns>
+            <remarks>
+            <para>To enable or disable error messages displayed by the loader during DLL loads, use the <a href="https://docs.microsoft.com/windows/desktop/api/errhandlingapi/nf-errhandlingapi-seterrormode">SetErrorMode</a> function. <b>LoadLibrary</b> can be used to load a library module into the address space of the process and return a handle that can be used in <a href="https://docs.microsoft.com/windows/desktop/api/libloaderapi/nf-libloaderapi-getprocaddress">GetProcAddress</a> to get the address of a DLL function. <b>LoadLibrary</b> can also be used to load other executable modules. For example, the function can specify an .exe file to get a handle that can be used in <a href="https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-findresourcea">FindResource</a> or <a href="https://docs.microsoft.com/windows/desktop/api/libloaderapi/nf-libloaderapi-loadresource">LoadResource</a>. However, do not use <b>LoadLibrary</b> to run an .exe file. Instead, use the <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-createprocessa">CreateProcess</a> function. If the specified module is a DLL that is not already loaded for the calling process, the system calls the DLL's <a href="https://docs.microsoft.com/windows/desktop/Dlls/dllmain">DllMain</a> function with the <b>DLL_PROCESS_ATTACH</b> value. If <b>DllMain</b> returns <b>TRUE</b>, <b>LoadLibrary</b> returns a handle to the module. If <b>DllMain</b> returns <b>FALSE</b>, the system unloads the DLL from the process address space and <b>LoadLibrary</b> returns <b>NULL</b>. It is not safe to call <b>LoadLibrary</b> from <b>DllMain</b>. For more information, see the Remarks section in <b>DllMain</b>. Module handles are not global or inheritable. A call to <b>LoadLibrary</b> by one process does not produce a handle that another process can use — for example, in calling <a href="https://docs.microsoft.com/windows/desktop/api/libloaderapi/nf-libloaderapi-getprocaddress">GetProcAddress</a>. The other process must make its own call to <b>LoadLibrary</b> for the module before calling <b>GetProcAddress</b>. If <i>lpFileName</i> does not include a path and there is more than one loaded module with the same base name and extension, the function returns a handle to the module that was loaded first. If no file name extension is specified in the <i>lpFileName</i> parameter, the default library extension .dll is appended. However, the file name string can include a trailing point character (.) to indicate that the module name has no extension. When no path is specified, the function searches for loaded modules whose base name matches the base name of the module to be loaded. If the name matches, the load succeeds. Otherwise, the function searches for the file. The first directory searched is the directory containing the image file used to create the calling process (for more information, see the <a href="https://docs.microsoft.com/windows/desktop/api/processthreadsapi/nf-processthreadsapi-createprocessa">CreateProcess</a> function). Doing this allows private dynamic-link library (DLL) files associated with a process to be found without adding the process's installed directory to the PATH environment variable. If a relative path is specified, the entire relative path is appended to every token in the DLL search path list. To load a module from a relative path without searching any other path, use <a href="https://docs.microsoft.com/windows/desktop/api/fileapi/nf-fileapi-getfullpathnamea">GetFullPathName</a> to get a nonrelative path and call <b>LoadLibrary</b> with the nonrelative path. For more information on the DLL search order, see <a href="https://docs.microsoft.com/windows/desktop/Dlls/dynamic-link-library-search-order">Dynamic-Link Library Search Order</a>. The search path can be altered using the <a href="https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-setdlldirectorya">SetDllDirectory</a> function. This solution is recommended instead of using <a href="https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-setcurrentdirectory">SetCurrentDirectory</a> or hard-coding the full path to the DLL. If a path is specified and there is a redirection file for the application, the function searches for the module in the application's directory. If the module exists in the application's directory, <b>LoadLibrary</b> ignores the specified path and loads the module from the application's directory. If the module does not exist in the application's directory, <b>LoadLibrary</b> loads the module from the specified directory. For more information, see <a href="https://docs.microsoft.com/windows/desktop/Dlls/dynamic-link-library-redirection">Dynamic Link Library Redirection</a>. If you call <b>LoadLibrary</b> with the name of an assembly without a path specification and the assembly is listed in the system compatible manifest, the call is automatically redirected to the side-by-side assembly. The system maintains a per-process reference count on all loaded modules. Calling <b>LoadLibrary</b> increments the reference count. Calling the <a href="https://docs.microsoft.com/windows/desktop/api/libloaderapi/nf-libloaderapi-freelibrary">FreeLibrary</a> or <a href="https://docs.microsoft.com/windows/desktop/api/libloaderapi/nf-libloaderapi-freelibraryandexitthread">FreeLibraryAndExitThread</a> function decrements the reference count. The system unloads a module when its reference count reaches zero or when the process terminates (regardless of the reference count). <b>Windows Server 2003 and Windows XP:  </b>The Visual C++ compiler supports a syntax that enables you to declare thread-local variables: <b>_declspec(thread)</b>. If you use this syntax in a DLL, you will not be able to load the DLL explicitly using <b>LoadLibrary</b> on versions of Windows prior to Windows Vista. If your DLL will be loaded explicitly, you must use the thread local storage functions instead of <b>_declspec(thread)</b>. For an example, see <a href="https://docs.microsoft.com/windows/desktop/Dlls/using-thread-local-storage-in-a-dynamic-link-library">Using Thread Local Storage in a Dynamic Link Library</a>. <h3><a id="Security_Remarks"></a><a id="security_remarks"></a><a id="SECURITY_REMARKS"></a>Security Remarks</h3> Do not use the <a href="https://docs.microsoft.com/windows/desktop/api/processenv/nf-processenv-searchpathw">SearchPath</a> function to retrieve a path to a DLL for a subsequent <b>LoadLibrary</b> call. The <b>SearchPath</b> function uses a different search order than <b>LoadLibrary</b> and it does not use safe process search mode unless this is explicitly enabled by calling <a href="https://docs.microsoft.com/windows/desktop/api/winbase/nf-winbase-setsearchpathmode">SetSearchPathMode</a> with <b>BASE_SEARCH_PATH_ENABLE_SAFE_SEARCHMODE</b>. Therefore, <b>SearchPath</b> is likely to first search the user’s current working directory for the specified DLL. If an attacker has copied a malicious version of a DLL into the current working directory, the path retrieved by <b>SearchPath</b> will point to the malicious DLL, which <b>LoadLibrary</b> will then load. Do not make assumptions about the operating system version based on a <b>LoadLibrary</b> call that searches for a DLL. If the application is running in an environment where the DLL is legitimately not present but a malicious version of the DLL is in the search path, the malicious version of the DLL may be loaded. Instead, use the recommended techniques described in <a href="https://docs.microsoft.com/windows/desktop/SysInfo/getting-the-system-version">Getting the System Version</a>.</para>
+            <para><see href="https://learn.microsoft.com/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryw#">Read more on docs.microsoft.com</see>.</para>
+            </remarks>
+        </member>
+        <member name="M:PDFtoImage.PdfiumViewer.NativeMethods.FPDF_LoadCustomDocument(System.IO.Stream,System.String,System.Int32)">
+            <summary>
+            Opens a document using a .NET Stream. Allows opening huge
+            PDFs without loading them into memory first.
+            </summary>
+            <param name="input">The input Stream. Don't dispose prior to closing the pdf.</param>
+            <param name="password">Password, if the PDF is protected. Can be null.</param>
+            <param name="id">Retrieves an IntPtr to the COM object for the Stream. The caller must release this with Marshal.Release prior to Disposing the Stream.</param>
+            <returns>An IntPtr to the FPDF_DOCUMENT object.</returns>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.NativeMethods.FPDF_ERR.SUCCESS">
+            <summary>
+            No error.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.NativeMethods.FPDF_ERR.UNKNOWN">
+            <summary>
+            Unknown error.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.NativeMethods.FPDF_ERR.FILE">
+            <summary>
+            File not found or could not be opened.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.NativeMethods.FPDF_ERR.FORMAT">
+            <summary>
+            File not in PDF format or corrupted.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.NativeMethods.FPDF_ERR.PASSWORD">
+            <summary>
+            Password required or incorrect password.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.NativeMethods.FPDF_ERR.SECURITY">
+            <summary>
+            Unsupported security scheme.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.NativeMethods.FPDF_ERR.PAGE">
+            <summary>
+            Page not found or content error.
+            </summary>
+        </member>
+        <member name="T:PDFtoImage.PdfiumViewer.PdfDocument">
+            <summary>
+            Provides functionality to render a PDF document.
+            </summary>
+        </member>
+        <member name="M:PDFtoImage.PdfiumViewer.PdfDocument.Load(System.IO.Stream,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the PdfDocument class with the provided stream.
+            </summary>
+            <param name="stream">Stream for the PDF document.</param>
+            <param name="password">Password for the PDF document.</param>
+            <param name="disposeStream">Decides if <paramref name="stream"/> will closed on dispose as well.</param>
+        </member>
+        <member name="P:PDFtoImage.PdfiumViewer.PdfDocument.PageSizes">
+            <summary>
+            Size of each page in the PDF document.
+            </summary>
+        </member>
+        <member name="M:PDFtoImage.PdfiumViewer.PdfDocument.Render(System.Int32,System.Int32,System.Int32,System.Single,System.Single,PDFtoImage.PdfRotation,PDFtoImage.PdfiumViewer.PdfRenderFlags,System.Boolean)">
+            <summary>
+            Renders a page of the PDF document to an image.
+            </summary>
+            <param name="page">Number of the page to render.</param>
+            <param name="width">Width of the rendered image.</param>
+            <param name="height">Height of the rendered image.</param>
+            <param name="dpiX">Horizontal DPI.</param>
+            <param name="dpiY">Vertical DPI.</param>
+            <param name="rotate">Rotation.</param>
+            <param name="flags">Flags used to influence the rendering.</param>
+            <param name="renderFormFill">Render form fills.</param>
+            <returns>The rendered image.</returns>
+        </member>
+        <member name="M:PDFtoImage.PdfiumViewer.PdfDocument.Dispose">
+            <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:PDFtoImage.PdfiumViewer.PdfDocument.Dispose(System.Boolean)">
+            <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+            <param name="disposing">Whether this method is called from Dispose.</param>
+        </member>
+        <member name="T:PDFtoImage.PdfiumViewer.PdfRenderFlags">
+            <summary>
+            Flags that influence the page rendering process.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.PdfRenderFlags.None">
+            <summary>
+            No flags.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.PdfRenderFlags.ForPrinting">
+            <summary>
+            Render for printing.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.PdfRenderFlags.Annotations">
+            <summary>
+            Set if annotations are to be rendered.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.PdfRenderFlags.LcdText">
+            <summary>
+            Set if using text rendering optimized for LCD display.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.PdfRenderFlags.NoNativeText">
+            <summary>
+            Don't use the native text output available on some platforms.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.PdfRenderFlags.Grayscale">
+            <summary>
+            Grayscale output.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.PdfRenderFlags.LimitImageCacheSize">
+            <summary>
+            Limit image cache size.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.PdfRenderFlags.ForceHalftone">
+            <summary>
+            Always use halftone for image stretching.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.PdfRenderFlags.Transparent">
+            <summary>
+            Render with a transparent background.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfiumViewer.PdfRenderFlags.CorrectFromDpi">
+            <summary>
+            Correct height/width for DPI.
+            </summary>
+        </member>
+        <member name="T:PDFtoImage.PdfRotation">
+            <summary>
+            Specifies the rotation of pages shown in the PDF renderer.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfRotation.Rotate0">
+            <summary>
+            No rotation.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfRotation.Rotate90">
+            <summary>
+            Rotated 90 degrees clockwise.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfRotation.Rotate180">
+            <summary>
+            Rotated 180 degrees.
+            </summary>
+        </member>
+        <member name="F:PDFtoImage.PdfRotation.Rotate270">
+            <summary>
+            Rotated 90 degrees counter-clockwise.
+            </summary>
+        </member>
+    </members>
+</doc>
