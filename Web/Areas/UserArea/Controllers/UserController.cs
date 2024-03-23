@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CommonHelper;
-using CommonHelper.Excel;
 using CommonHelper.String;
 using CommonHelper.Upload;
 using Model.Entities;
@@ -9,7 +8,6 @@ using Service.AppUserService;
 using Service.AppUserService.Dto;
 using Service.Common;
 using Web.Areas.UserArea.Models;
-using Web.Common;
 using Web.Filters;
 using log4net;
 using Microsoft.AspNet.Identity;
@@ -22,7 +20,6 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Hosting;
 using System.Web.Mvc;
-using Web.Common;
 using Model;
 using OfficeOpenXml.Style;
 using OfficeOpenXml;
@@ -149,11 +146,7 @@ namespace Web.Areas.UserArea.Controllers
                 user.Address = model.Address;
                 user.Gender = model.Gender;
                 user.Email = model.Email;
-                user.DonViId = model.DonviId;
                 user.Avatar = "images/avatars/profile-pic.jpg";
-                user.IdChucVuNhanMail = model.VaiTroMacDinh;
-                user.TypeOrganization = model.TypeOrganization;
-                user.IsSingleSignOn = false;
                 var UserManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
                 //Kiểm tra thông tin tài khoản
@@ -201,9 +194,6 @@ namespace Web.Areas.UserArea.Controllers
                 BirthDay = user.BirthDay,
                 Gender = user.Gender,
                 Address = user.Address,
-                VaiTroMacDinh = user.IdChucVuNhanMail,
-                DonViId = user.DonViId,
-                TypeOrganization = user.TypeOrganization,
                 UserName = user.UserName,
             };
             var viewModel = _mapper.Map(user, myModel);
@@ -252,9 +242,6 @@ namespace Web.Areas.UserArea.Controllers
                     return Json(result);
                 }
 
-                user.IdChucVuNhanMail = model.VaiTroMacDinh;
-                user.DonViId = model.DonViId;
-                user.IsSingleSignOn = false;
                 user = _mapper.Map(model, user);
                 _appUserService.Update(user);
 

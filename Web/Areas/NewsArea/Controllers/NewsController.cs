@@ -20,9 +20,7 @@ using System.Web.Mvc;
 using Web.Filters;
 using Service.NewsService;
 using Service.NewsService.Dto;
-using CommonHelper.Excel;
 using CommonHelper.ObjectExtention;
-using Web.Common;
 using System.IO;
 using System.Web.Configuration;
 using CommonHelper;
@@ -303,116 +301,6 @@ namespace Web.Areas.NewsArea.Controllers
             var model = new DetailVM();
             model.objInfo = _NewsService.GetDetail(id);
             return View(model);
-        }
-        //[PermissionAccess(Code = permissionImport)]
-        public FileResult ExportExcel()
-        {
-            var searchModel = SessionManager.GetValue(searchKey) as NewsSearchDto;
-            var data = _NewsService.GetDaTaByPage(searchModel).ListItem;
-            var dataExport = _mapper.Map<List<NewsExportDto>>(data);
-            var fileExcel = ExportExcelV2Helper.Export<NewsExportDto>(dataExport);
-            return File(fileExcel, "application/octet-stream", "News.xlsx");
-        }
-        //[PermissionAccess(Code = permissionImport)]
-        public ActionResult Import()
-        {
-            var model = new ImportVM();
-            model.PathTemplate = Path.Combine(@"/Uploads", WebConfigurationManager.AppSettings["IMPORT_News"]);
-
-            return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult CheckImport(FormCollection collection, HttpPostedFileBase fileImport)
-        {
-            JsonResultImportBO<NewsImportDto> result = new JsonResultImportBO<NewsImportDto>(true);
-            //Kiểm tra file có tồn tại k?
-            if (fileImport == null)
-            {
-                result.Status = false;
-                result.Message = "Không có file đọc dữ liệu";
-                return View(result);
-            }
-
-            //Lưu file upload để đọc
-            var saveFileResult = UploadProvider.SaveFile(fileImport, null, ".xls,.xlsx", null, "TempImportFile", HostingEnvironment.MapPath("/Uploads"));
-            if (!saveFileResult.status)
-            {
-                result.Status = false;
-                result.Message = saveFileResult.message;
-                return View(result);
-            }
-            else
-            {
-
-                #region Config để import dữ liệu
-                var importHelper = new ImportExcelHelper<NewsImportDto>();
-                importHelper.PathTemplate = saveFileResult.fullPath;
-                //importHelper.StartCol = 2;
-                importHelper.StartRow = collection["ROWSTART"].ToIntOrZero();
-                importHelper.ConfigColumn = new List<ConfigModule>();
-                importHelper.ConfigColumn = ExcelImportExtention.GetConfigCol<NewsImportDto>(collection);
-                #endregion
-                var rsl = importHelper.ImportCustomRow();
-                if (rsl.Status)
-                {
-                    result.Status = true;
-                    result.Message = rsl.Message;
-
-                    result.ListData = rsl.ListTrue;
-                    result.ListFalse = rsl.lstFalse;
-                }
-                else
-                {
-                    result.Status = false;
-                    result.Message = rsl.Message;
-                }
-
-            }
-            return View(result);
-        }
-
-
-        [HttpPost]
-        public JsonResult GetExportError(List<List<string>> lstData)
-        {
-            ExportExcelHelper<NewsImportDto> exPro = new ExportExcelHelper<NewsImportDto>();
-            exPro.PathStore = Path.Combine(HostingEnvironment.MapPath("/Uploads"), "ErrorExport");
-            exPro.PathTemplate = Path.Combine(HostingEnvironment.MapPath("/Uploads"), WebConfigurationManager.AppSettings["IMPORT_News"]);
-            exPro.StartRow = 5;
-            exPro.StartCol = 2;
-            exPro.FileName = "ErrorImportNews";
-            var result = exPro.ExportText(lstData);
-            if (result.Status)
-            {
-                result.PathStore = Path.Combine(@"/Uploads/ErrorExport", result.FileName);
-            }
-            return Json(result);
-        }
-
-        [HttpPost]
-        public JsonResult SaveImportData(List<NewsImportDto> Data)
-        {
-            var result = new JsonResultBO(true);
-
-            var lstObjSave = new List<News>();
-            try
-            {
-                foreach (var item in Data)
-                {
-                    var obj = _mapper.Map<News>(item);
-                    _NewsService.Create(obj);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                result.Status = false;
-                result.Message = "Lỗi dữ liệu, không thể import";
-                _Ilog.Error("Lỗi Import", ex);
-            }
-
-            return Json(result);
         }
 
     }

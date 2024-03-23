@@ -202,8 +202,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\IMAuditableEntity.cs" />
-    <Compile Include="Common\MAuditableEntity.cs" />
     <Compile Include="Common\AuditableEntity.cs" />
     <Compile Include="Common\CandidateSelectionTypeConstant.cs" />
     <Compile Include="Common\DanhMucConstantBase.cs" />
@@ -231,18 +229,11 @@
     <Compile Include="Migrations\202403221051069_addSystem.Designer.cs">
       <DependentUpon>202403221051069_addSystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403231447592_remove-field.cs" />
+    <Compile Include="Migrations\202403231447592_remove-field.Designer.cs">
+      <DependentUpon>202403231447592_remove-field.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="MongoEntities\AuditDTO.cs" />
-    <Compile Include="MongoEntities\ConfigCategory.cs" />
-    <Compile Include="MongoEntities\ConfigCrawl.cs" />
-    <Compile Include="MongoEntities\DataCrawl.cs" />
-    <Compile Include="MongoEntities\DataDefaultChartMDB.cs" />
-    <Compile Include="MongoEntities\MongoEntity.cs" />
-    <Compile Include="MongoEntities\QuickFilterMDB.cs" />
-    <Compile Include="MongoEntities\SmartReportMDB.cs" />
-    <Compile Include="MongoEntities\Topic.cs" />
-    <Compile Include="MongoEntities\TopicCategory.cs" />
-    <Compile Include="Permission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HinetContext.cs" />
     <Compile Include="Seed\InitAccountSeed.cs" />
@@ -345,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202403221051069_addSystem.resx">
       <DependentUpon>202403221051069_addSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403231447592_remove-field.resx">
+      <DependentUpon>202403231447592_remove-field.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -32,7 +32,6 @@ using CommonHelper.String;
 using Service.AppUserService.Dto;
 
 using System.Configuration;
-using Web.Common;
 using System.Net;
 using System.IO;
 using System.Xml;
@@ -216,13 +215,7 @@ namespace Web.Controllers
                         }
 
                         var userDto = _appUserService.GetById(userId);
-                        if (userDto.DateBlockEnd != null && userDto.DateBlockEnd > DateTime.Now)
-                        {
-                            ModelState.AddModelError("", "Tài khoản của bạn đang bị khóa! Vui lòng quay lại sau.");
-                            loginResult.Status = false;
-                            loginResult.Message = "Tài khoản của bạn đang bị khóa! Vui lòng quay lại sau.";
-                            return Json(loginResult);
-                        }
+                      
 
                         // lấy log đăng nhập
 
@@ -262,7 +255,6 @@ namespace Web.Controllers
                             else
                             {
                                 var dbUser = _appUserService.GetById(user.Id);
-                                dbUser.Block = true;
                                 dbUser.LockoutEnabled = true;
                                 dbUser.LockoutEndDateUtc = DateTime.Now.AddHours(7);
                                 _appUserService.Save(dbUser);
@@ -345,11 +337,7 @@ namespace Web.Controllers
                         }
 
                         var userDto = _appUserService.GetById(userId);
-                        if (userDto.DateBlockEnd != null && userDto.DateBlockEnd > DateTime.Now)
-                        {
-                            ModelState.AddModelError("", "Tài khoản của bạn đang bị khóa! Vui lòng quay lại sau.");
-                            return View(model);
-                        }
+                     
 
                         // lấy log đăng nhập
 
@@ -381,7 +369,6 @@ namespace Web.Controllers
                             else
                             {
                                 var dbUser = _appUserService.GetById(user.Id);
-                                dbUser.Block = true;
                                 dbUser.LockoutEnabled = true;
                                 dbUser.LockoutEndDateUtc = DateTime.Now.AddHours(7);
                                 _appUserService.Save(dbUser);
@@ -570,32 +557,33 @@ namespace Web.Controllers
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<JsonResult> ChangePassword(ChangePasswordViewModel model)
+        public async Task<JsonResult> ChangePassword(int a)
         {
-            var result = new JsonResultBO(true);
-            if (!ModelState.IsValid)
-            {
-                result.Status = false;
-                result.Message = ModelState.GetErrors();
-                return Json(result);
-            }
-            var changePasswordResult = await UserManager.ChangePasswordAsync(User.Identity.GetUserId<long>(), model.OldPassword, model.NewPassword);
-            if (changePasswordResult.Succeeded)
-            {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId<long>());
-                if (user != null)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                }
-                result.Status = true;
-                result.Message = "Đổi mật khẩu thành công";
-            }
-            else
-            {
-                result.Status = true;
-                result.Message = "Đổi mật khẩu thất bại";
-            }
-            return Json(result);
+            //var result = new JsonResultBO(true);
+            //if (!ModelState.IsValid)
+            //{
+            //    result.Status = false;
+            //    result.Message = ModelState.GetErrors();
+            //    return Json(result);
+            //}
+            //var changePasswordResult = await UserManager.ChangePasswordAsync(User.Identity.GetUserId<long>(), model.OldPassword, model.NewPassword);
+            //if (changePasswordResult.Succeeded)
+            //{
+            //    var user = await UserManager.FindByIdAsync(User.Identity.GetUserId<long>());
+            //    if (user != null)
+            //    {
+            //        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+            //    }
+            //    result.Status = true;
+            //    result.Message = "Đổi mật khẩu thành công";
+            //}
+            //else
+            //{
+            //    result.Status = true;
+            //    result.Message = "Đổi mật khẩu thất bại";
+            //}
+            //return Json(result);
+            return null;
         }
 
     }

@@ -64,7 +64,6 @@ namespace Web
             log4net.Config.XmlConfigurator.Configure(new FileInfo(Server.MapPath("~/Web.config")));
             var pathConfig = Server.MapPath("~/App_Data/ConfigStatus.json");
             StatusProvider.loadData(pathConfig);
-            OCRProvider.Init(WebConfigurationManager.AppSettings["TessData"]);
         }
 
         protected void Application_Error(Object sender, EventArgs e)

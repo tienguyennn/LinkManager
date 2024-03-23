@@ -50,7 +50,6 @@ namespace Service.AppUserService
             var query = from user in _appUserRepository.GetAllAsQueryable()
                         select new UserDto
                         {
-                            ProvinceManagement = user.ProvinceManagement,
                             UserName = user.UserName,
                             FullName = user.FullName,
                             Id = user.Id,
@@ -58,7 +57,6 @@ namespace Service.AppUserService
                             Address = user.Address,
                             Avatar = user.Avatar,
                             BirthDay = user.BirthDay,
-                            IsLock = user.Block == true || (user.LockoutEndDateUtc != null && user.LockoutEndDateUtc > DateTime.Now),
                             Email = user.Email,
                             EmailConfirmed = user.EmailConfirmed,
                             Gender = user.Gender,
@@ -67,25 +65,10 @@ namespace Service.AppUserService
                             PhoneNumber = user.PhoneNumber,
                             PhoneNumberConfirmed = user.PhoneNumberConfirmed,
                             TypeAccount = user.TypeAccount,
-                            TypeOrganization = user.TypeOrganization,
-                            OrganizationId = user.OrganizationId,
-                            IsSendMail = user.IsSendMail,
-                            ErrorMessage = user.ErrorMessage,
-                            DonViId = user.DonViId,
-                            IsSingleSignOn = user.IsSingleSignOn,
                         };
 
             if (searchModel != null)
             {
-                if (searchModel.IsUserSSO == true)
-                {
-                    query = query.Where(x => x.IsSingleSignOn == true);
-                }
-
-                if (searchModel.DonViIdFilter.HasValue)
-                {
-                    query = query.Where(x => x.DonViId == searchModel.DonViIdFilter.Value);
-                }
                 if (!string.IsNullOrEmpty(searchModel.UserNameFilter))
                 {
                     searchModel.UserNameFilter = searchModel.UserNameFilter.Trim().ToLower();

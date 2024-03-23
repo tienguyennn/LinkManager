@@ -40,7 +40,6 @@ namespace Web.Filters
             if (CurrentUserInfo != null)
             {
                 CurrentUserId = CurrentUserInfo.Id;
-                CurrentIdDonVi = CurrentUserInfo.DonViId.GetValueOrDefault();
             }
             else
             {
@@ -102,11 +101,7 @@ namespace Web.Filters
                     //    return;
                     //}
 
-                    if (authorizeUser != null && !authorizeUser.IsUpdateNewPass)
-                    {
-                        filterContext.Result = RedirectToAction("ChangePassword", "Manage", new { area = "" });
-                        return;
-                    }
+                   
                 }
             }
 

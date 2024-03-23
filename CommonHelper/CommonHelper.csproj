@@ -70,15 +70,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsyncExtension\AsyncExtension.cs" />
-    <Compile Include="ConvertToPDF\ConvertToPDF.cs" />
-    <Compile Include="CoreModel\JsonResultImportBO.cs" />
-    <Compile Include="Excel\EpplusExportExcel.cs" />
-    <Compile Include="Excel\ExportExcelHelper.cs" />
-    <Compile Include="Excel\ExportExcelSupplier.cs" />
-    <Compile Include="Excel\ExportExcelV2Helper.cs" />
-    <Compile Include="Excel\ImportExcelHelper.cs" />
-    <Compile Include="Firebase\FcmHelper.cs" />
     <Compile Include="HtmlTagHelper\HtmlTagHelper.cs" />
     <Compile Include="LinqExtension\LinqExtension.cs" />
     <Compile Include="NullConditional\NullConditional.cs" />
@@ -88,12 +79,9 @@
     <Compile Include="ObjectExtention\CustomDisplayNameAttribute.cs" />
     <Compile Include="ObjectExtention\PropertyInfoExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQL\SQLHelper.cs" />
     <Compile Include="String\HTMLStringUltilities.cs" />
     <Compile Include="String\StringUtilities.cs" />
     <Compile Include="String\ValidValueData.cs" />
-    <Compile Include="UIHelper\FontAwesomeRenderer.cs" />
-    <Compile Include="UIHelper\ViewRenderer.cs" />
     <Compile Include="Upload\ConvertToPDF.cs" />
     <Compile Include="Upload\FileUploadHelper.cs" />
     <Compile Include="Upload\UploadProvider.cs" />
@@ -110,8 +98,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Date\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

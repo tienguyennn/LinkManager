@@ -78,7 +78,6 @@ namespace Web.Core
             {
                 var typeString = typeof(string);
                 var typeList = typeof(List<>);
-                var typeUpload = typeof(UploadToolVM);
                 foreach (var diffProp in diffProps)
                 {
                     if (diffProp.PropertyType == typeString)

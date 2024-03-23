@@ -7,7 +7,6 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using System.Web.Helpers;
-using Model.MongoEntities;
 using MongoDB.Driver;
 using Service.AppUserService.Dto;
 
@@ -43,21 +42,21 @@ namespace Web.Filters
 
 
 
-            AuditDTO audit = new AuditDTO()
-            {
-                // Your Audit Identifier
-                AuditID = Guid.NewGuid(),
-                // Our Username (if available)
-                UserName = (request.IsAuthenticated) ? filterContext.HttpContext.User.Identity.Name : "Ẩn danh",
-                // The IP Address of the Request
-                IPAddress = request.ServerVariables["HTTP_X_FORWARDED_FOR"] ?? request.UserHostAddress,
-                // The URL that was accessed
-                URLAccessed = request.RawUrl,
-                // Creates our Timestamp
-                TimeAccessed = DateTime.UtcNow,
-                Data = SerializeRequest(request),
-                ActionName = ActionName
-            };
+            //AuditDTO audit = new AuditDTO()
+            //{
+            //    // Your Audit Identifier
+            //    AuditID = Guid.NewGuid(),
+            //    // Our Username (if available)
+            //    UserName = (request.IsAuthenticated) ? filterContext.HttpContext.User.Identity.Name : "Ẩn danh",
+            //    // The IP Address of the Request
+            //    IPAddress = request.ServerVariables["HTTP_X_FORWARDED_FOR"] ?? request.UserHostAddress,
+            //    // The URL that was accessed
+            //    URLAccessed = request.RawUrl,
+            //    // Creates our Timestamp
+            //    TimeAccessed = DateTime.UtcNow,
+            //    Data = SerializeRequest(request),
+            //    ActionName = ActionName
+            //};
 
             //MongoDBContext mongoDBContext = new MongoDBContext();
             //var collect = mongoDBContext.Database.GetCollection<AuditDTO>("Audit");

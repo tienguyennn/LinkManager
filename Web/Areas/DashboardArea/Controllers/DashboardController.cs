@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BotDetect.C5;
-using CommonHelper.Excel;
 using CommonHelper.ObjectExtention;
 using CommonHelper.String;
 using Model;
