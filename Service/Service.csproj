@@ -336,6 +336,7 @@
     <Compile Include="Common\JsonResultBO.cs" />
     <Compile Include="Common\PageListResultBO.cs" />
     <Compile Include="Common\SearchBase.cs" />
+    <Compile Include="Constant\AccountTypeConstant.cs" />
     <Compile Include="Constant\NewsTypeConstant.cs" />
     <Compile Include="Constant\CategoryConstant.cs" />
     <Compile Include="EnvironmentEntityService\EnvironmentEntityService.cs" />

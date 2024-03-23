@@ -21,6 +21,7 @@ using System.Runtime.Remoting.Channels;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Service.LinkService;
+using Service.Constant;
 
 namespace Web.Areas.DashboardArea.Controllers
 {
@@ -43,7 +44,7 @@ namespace Web.Areas.DashboardArea.Controllers
 
         public ActionResult Index()
         {
-            if(CurrentUserInfo.UserName == "admin")
+            if(CurrentUserInfo.TypeAccount== AccountTypeConstant.Admin)
             {
                 ViewBag.Data = _linkService.GetData();
                 return View();
