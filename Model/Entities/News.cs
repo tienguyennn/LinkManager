@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Model.Entities
 {
     [Table("News")]
-    public class News : AuditableEntity<int>
+    public class News : AuditableEntity<long>
     {
         public string Title { get; set; }
         public string Description { get; set; }

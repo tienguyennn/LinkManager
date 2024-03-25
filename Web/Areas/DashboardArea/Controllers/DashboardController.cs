@@ -44,7 +44,11 @@ namespace Web.Areas.DashboardArea.Controllers
 
         public ActionResult Index()
         {
-            if(CurrentUserInfo.TypeAccount== AccountTypeConstant.Admin)
+            if (CurrentUserInfo == null)
+            {
+                return Redirect("/AccountAdmin/Logoff");
+            }
+            if (CurrentUserInfo.TypeAccount == AccountTypeConstant.Admin)
             {
                 ViewBag.Data = _linkService.GetData();
                 return View();
@@ -54,7 +58,7 @@ namespace Web.Areas.DashboardArea.Controllers
                 ViewBag.Data = _linkService.GetData();
                 return View("IndexUser");
             }
-            
+
 
         }
     }

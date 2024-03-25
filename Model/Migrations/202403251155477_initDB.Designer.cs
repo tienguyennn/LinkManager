@@ -7,13 +7,13 @@ namespace Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class removefield : IMigrationMetadata
+    public sealed partial class initDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(removefield));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202403231447592_remove-field"; }
+            get { return "202403251155477_initDB"; }
         }
         
         string IMigrationMetadata.Source

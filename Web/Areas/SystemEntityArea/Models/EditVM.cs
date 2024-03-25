@@ -8,7 +8,7 @@ namespace Web.Areas.SystemEntityArea.Models
 {
     public class EditVM
     {
-	public long Id { get; set; }
+        public long Id { get; set; }
         public long? EnvironmentId { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }

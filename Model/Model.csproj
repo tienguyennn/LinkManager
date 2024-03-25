@@ -217,21 +217,9 @@
     <Compile Include="Entities\News.cs" />
     <Compile Include="Entities\SystemEntity.cs" />
     <Compile Include="IdentityEntities\AppUser.cs" />
-    <Compile Include="Migrations\202403210207429_initDB.cs" />
-    <Compile Include="Migrations\202403210207429_initDB.Designer.cs">
-      <DependentUpon>202403210207429_initDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403210721329_addCategory.cs" />
-    <Compile Include="Migrations\202403210721329_addCategory.Designer.cs">
-      <DependentUpon>202403210721329_addCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403221051069_addSystem.cs" />
-    <Compile Include="Migrations\202403221051069_addSystem.Designer.cs">
-      <DependentUpon>202403221051069_addSystem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202403231447592_remove-field.cs" />
-    <Compile Include="Migrations\202403231447592_remove-field.Designer.cs">
-      <DependentUpon>202403231447592_remove-field.cs</DependentUpon>
+    <Compile Include="Migrations\202403251155477_initDB.cs" />
+    <Compile Include="Migrations\202403251155477_initDB.Designer.cs">
+      <DependentUpon>202403251155477_initDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -328,17 +316,8 @@
     <Analyzer Include="..\packages\AWSSDK.SecurityToken.3.7.100.14\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202403210207429_initDB.resx">
-      <DependentUpon>202403210207429_initDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403210721329_addCategory.resx">
-      <DependentUpon>202403210721329_addCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403221051069_addSystem.resx">
-      <DependentUpon>202403221051069_addSystem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202403231447592_remove-field.resx">
-      <DependentUpon>202403231447592_remove-field.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202403251155477_initDB.resx">
+      <DependentUpon>202403251155477_initDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

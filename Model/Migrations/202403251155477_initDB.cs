@@ -8,12 +8,34 @@
         public override void Up()
         {
             CreateTable(
+                "dbo.EnvironmentEntity",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        Name = c.String(),
+                        Code = c.String(),
+                        Order = c.Int(nullable: false),
+                        Description = c.String(),
+                        CreatedDate = c.DateTime(nullable: false),
+                        CreatedBy = c.String(maxLength: 256),
+                        CreatedID = c.Long(),
+                        UpdatedDate = c.DateTime(nullable: false),
+                        UpdatedBy = c.String(maxLength: 256),
+                        UpdatedID = c.Long(),
+                        IsDelete = c.Boolean(),
+                        DeleteTime = c.DateTime(),
+                        DeleteId = c.Long(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Link",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Long(nullable: false, identity: true),
                         Name = c.String(),
                         Href = c.String(),
+                        SystemId = c.Long(),
                         Active = c.Boolean(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         CreatedBy = c.String(maxLength: 256),
@@ -31,7 +53,7 @@
                 "dbo.News",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Long(nullable: false, identity: true),
                         Title = c.String(),
                         Description = c.String(),
                         Content = c.String(storeType: "ntext"),
@@ -77,6 +99,28 @@
                 .Index(t => t.RoleId);
             
             CreateTable(
+                "dbo.SystemEntity",
+                c => new
+                    {
+                        Id = c.Long(nullable: false, identity: true),
+                        EnvironmentId = c.Long(),
+                        Name = c.String(),
+                        Image = c.String(),
+                        Description = c.String(),
+                        ThuTu = c.Int(nullable: false),
+                        CreatedDate = c.DateTime(nullable: false),
+                        CreatedBy = c.String(maxLength: 256),
+                        CreatedID = c.Long(),
+                        UpdatedDate = c.DateTime(nullable: false),
+                        UpdatedBy = c.String(maxLength: 256),
+                        UpdatedID = c.Long(),
+                        IsDelete = c.Boolean(),
+                        DeleteTime = c.DateTime(),
+                        DeleteId = c.Long(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AppUser",
                 c => new
                     {
@@ -90,33 +134,6 @@
                         FullName = c.String(maxLength: 250),
                         Avatar = c.String(),
                         TypeAccount = c.String(),
-                        TypeOrganization = c.String(),
-                        OrganizationId = c.Long(),
-                        ChucVuId = c.Int(),
-                        ProvinceManagement = c.String(),
-                        DichVuCongManagement = c.String(),
-                        CreatedDate = c.DateTime(),
-                        IdChucVuNhanMail = c.Int(),
-                        CreatedBy = c.String(maxLength: 256),
-                        CreatedID = c.Long(),
-                        UpdatedDate = c.DateTime(),
-                        UpdatedBy = c.String(),
-                        UpdatedID = c.Long(),
-                        IsDelete = c.Boolean(),
-                        DeleteTime = c.DateTime(),
-                        DeleteId = c.Long(),
-                        Mobile = c.String(),
-                        Detail = c.String(),
-                        LastLogin = c.DateTime(),
-                        Block = c.Boolean(),
-                        DateBlockStart = c.DateTime(),
-                        DateBlockEnd = c.DateTime(),
-                        TypeDashboard = c.Int(nullable: false),
-                        IsUpdateNewPass = c.Boolean(nullable: false),
-                        IsSendMail = c.Boolean(nullable: false),
-                        ErrorMessage = c.Boolean(nullable: false),
-                        DonViId = c.Int(),
-                        IsSingleSignOn = c.Boolean(nullable: false),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
                         SecurityStamp = c.String(),
@@ -171,10 +188,12 @@
             DropTable("dbo.AppLogin");
             DropTable("dbo.AppClaim");
             DropTable("dbo.AppUser");
+            DropTable("dbo.SystemEntity");
             DropTable("dbo.AppUserRole");
             DropTable("dbo.AppRole");
             DropTable("dbo.News");
             DropTable("dbo.Link");
+            DropTable("dbo.EnvironmentEntity");
         }
     }
 }

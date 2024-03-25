@@ -4,7 +4,7 @@
 namespace Model.Entities
 {
     [Table("Link")]
-    public class Link : AuditableEntity<int>
+    public class Link : AuditableEntity<long>
     {
         public string Name { get; set; }
         public string Href { get; set; }

@@ -195,8 +195,8 @@ namespace Service.LinkService
         public List<EnvironmentEntityData> GetData()
         {
             var result = new List<EnvironmentEntityData>();
-            var envs = _EnvironmentEntityRepository.GetAllAsQueryable().ToList();
-            var systems = _systemEntityRepository.GetAllAsQueryable().ToList();
+            var envs = _EnvironmentEntityRepository.GetAllAsQueryable().OrderBy(x => x.Order).ToList();
+            var systems = _systemEntityRepository.GetAllAsQueryable().OrderBy(x => x.ThuTu).ToList();
             var links = _LinkRepository.GetAllAsQueryable().Where(x => x.Active).ToList();
             foreach (var env in envs)
             {
@@ -205,12 +205,12 @@ namespace Service.LinkService
                     SystemEntityDatas = new List<SystemEntityData>(),
                     Environment = env,
                 };
-                foreach (var system in systems.Where(x=>x.EnvironmentId == env.Id))
+                foreach (var system in systems.Where(x => x.EnvironmentId == env.Id))
                 {
                     var itemSystem = new SystemEntityData()
                     {
                         SystemEntity = system,
-                        Links = links.Where(x=>x.SystemId == system.Id).ToList()
+                        Links = links.Where(x => x.SystemId == system.Id).ToList()
                     };
                     item.SystemEntityDatas.Add(itemSystem);
                 }

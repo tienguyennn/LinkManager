@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Model.Entities
 {
     [Table("EnvironmentEntity")]
-    public class EnvironmentEntity : AuditableEntity<int>
+    public class EnvironmentEntity : AuditableEntity<long>
     {
         public string Name { get; set; }
         public string Code { get; set; }

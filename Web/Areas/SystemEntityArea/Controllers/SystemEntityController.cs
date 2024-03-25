@@ -156,7 +156,10 @@ namespace Web.Areas.SystemEntityArea.Controllers
                     {
                         throw new Exception("Không tìm thấy thông tin");
                     }
-
+                    obj.Name = model.Name;
+                    obj.EnvironmentId = model.EnvironmentId;
+                    obj.Description = model.Description;
+                    obj.ThuTu = model.ThuTu;
                     _SystemEntityService.Update(obj);
 
                 }
