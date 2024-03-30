@@ -14,7 +14,7 @@ namespace Web.Areas.SystemEntityArea.Models
         public string Image { get; set; }
         public string Description { get; set; }
         public int ThuTu { get; set; }
-
+        public bool Active { get; set; }
 
     }
 }

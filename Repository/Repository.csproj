@@ -88,6 +88,8 @@
     <Compile Include="Common\IGenericRepository.cs" />
     <Compile Include="EnvironmentEntityRepository\EnvironmentEntityRepository.cs" />
     <Compile Include="EnvironmentEntityRepository\IEnvironmentEntityRepository.cs" />
+    <Compile Include="UserLinkRepository\IUserLinkRepository.cs" />
+    <Compile Include="UserLinkRepository\UserLinkRepository.cs" />
     <Compile Include="NewsRepository\INewsRepository.cs" />
     <Compile Include="NewsRepository\NewsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

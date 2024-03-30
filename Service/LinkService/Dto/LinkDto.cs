@@ -14,5 +14,6 @@ namespace Service.LinkService.Dto
     {
         public SystemEntity SystemEntity { get; set; }
         public EnvironmentEntity EnvironmentEntity { get;  set; }
+        public bool Checked { get; set; }
     }
 }

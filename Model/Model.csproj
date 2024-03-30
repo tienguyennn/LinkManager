@@ -213,6 +213,7 @@
     <Compile Include="Common\UnitOfWork.cs" />
     <Compile Include="Entities\Audit.cs" />
     <Compile Include="Entities\EnvironmentEntity.cs" />
+    <Compile Include="Entities\UserLink.cs" />
     <Compile Include="Entities\Link.cs" />
     <Compile Include="Entities\News.cs" />
     <Compile Include="Entities\SystemEntity.cs" />
@@ -220,6 +221,18 @@
     <Compile Include="Migrations\202403251155477_initDB.cs" />
     <Compile Include="Migrations\202403251155477_initDB.Designer.cs">
       <DependentUpon>202403251155477_initDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403301518078_addActive.cs" />
+    <Compile Include="Migrations\202403301518078_addActive.Designer.cs">
+      <DependentUpon>202403301518078_addActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403301519414_addDescription.cs" />
+    <Compile Include="Migrations\202403301519414_addDescription.Designer.cs">
+      <DependentUpon>202403301519414_addDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202403301651048_addUserLink.cs" />
+    <Compile Include="Migrations\202403301651048_addUserLink.Designer.cs">
+      <DependentUpon>202403301651048_addUserLink.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -318,6 +331,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202403251155477_initDB.resx">
       <DependentUpon>202403251155477_initDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403301518078_addActive.resx">
+      <DependentUpon>202403301518078_addActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403301519414_addDescription.resx">
+      <DependentUpon>202403301519414_addDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403301651048_addUserLink.resx">
+      <DependentUpon>202403301651048_addUserLink.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

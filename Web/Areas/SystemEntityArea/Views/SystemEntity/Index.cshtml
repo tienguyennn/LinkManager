@@ -25,7 +25,22 @@
     <a href="javascript:void(0)" onclick="CreateAction('/SystemEntityArea/SystemEntity/Create')" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Thêm mới</a>
 }
 @Html.Partial("_SearchPartial")
+<style>
+    .active-1,
+    .active-0 {
+        border-radius: 12px;
+        padding: 8px;
+        color: white;
+    }
 
+    .active-0 {
+        background-color: green;
+    }
+
+    .active-1 {
+        background-color: red;
+    }
+</style>
 <div id="tbl-SystemEntity" class="hntbl-cover table-scroll">
     <div class="table-wrap">
         <table class="hinet-table table table-striped table-hover" cellspacing="0" width="100%">
@@ -37,7 +52,7 @@
                     <th>Tên </th>
                     <th>Mô tả</th>
                     <th>Thứ tự</th>
-
+                    <th>Hoạt động</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -108,7 +123,13 @@ result += "<li><a href='javascript:void(0)' onclick='EditAction(\"/SystemEntityA
 				}
 				},
 
-
+                {
+                    isSort: false,
+                    nameModel: 'Active',
+                    content: function (data) {
+                        return data.Active ? `<span class='active-0'>Hoạt động</span>` : `<span class='active-1'>Không hoạt động</span>`;
+                    }
+                }
             ];
 
 

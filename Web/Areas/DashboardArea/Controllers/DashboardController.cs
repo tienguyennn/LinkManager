@@ -50,12 +50,11 @@ namespace Web.Areas.DashboardArea.Controllers
             }
             if (CurrentUserInfo.TypeAccount == AccountTypeConstant.Admin)
             {
-                ViewBag.Data = _linkService.GetData();
                 return View();
             }
             else
             {
-                ViewBag.Data = _linkService.GetData();
+                ViewBag.Data = _linkService.GetData(CurrentUserId);
                 return View("IndexUser");
             }
 

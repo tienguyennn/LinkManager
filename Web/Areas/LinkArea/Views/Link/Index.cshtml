@@ -53,6 +53,8 @@
                     <th>System</th>
                     <th>Tên</th>
                     <th>Liên kết</th>
+                    <th>Ip</th>
+                    <th>Mô tả</th>
                     <th>Hoạt động</th>
                 </tr>
             </thead>
@@ -126,13 +128,27 @@
 					content: function (data) {
                         return data.Href
 				}
-				},
+                },
+                {
+                    isSort: false,
+                    nameModel: 'Ip',
+                    content: function (data) {
+                        return data.Ip
+                    }
+                },
+                {
+                    isSort: false,
+                    nameModel: 'Description',
+                    content: function (data) {
+                        return data.Description
+                    }
+                },
 				{
 					isSort:false,
 					nameModel:'Active',
 					content: function (data) {
                         return data.Active ? `<span class='active-0'>Hoạt động</span>` : `<span class='active-1'>Không hoạt động</span>`;
-				}
+				    }
 				}
 
             ];

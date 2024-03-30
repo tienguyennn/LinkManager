@@ -15,6 +15,8 @@ namespace Web.Areas.LinkArea.Models
         [Required(ErrorMessage = "Vui lòng nhập thông tin này")]
         public long SystemId { get; set; }
         public bool Active { get; set; }
+        public string Ip { get; set; }
+        public string Description { get; set; }
 
 
     }

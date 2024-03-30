@@ -515,6 +515,10 @@
     <Compile Include="Areas\EnvironmentEntityArea\Models\ImportVM.cs" />
     <Compile Include="Areas\DashboardArea\Controllers\DashboardController.cs" />
     <Compile Include="Areas\DashboardArea\DashboardAreaAreaRegistration.cs" />
+    <Compile Include="Areas\UserLinkArea\Controllers\UserLinkController.cs" />
+    <Compile Include="Areas\UserLinkArea\UserLinkAreaAreaRegistration.cs" />
+    <Compile Include="Areas\UserLinkArea\Models\CreateVM.cs" />
+    <Compile Include="Areas\UserLinkArea\Models\EditVM.cs" />
     <Compile Include="Areas\LinkArea\Controllers\LinkController.cs" />
     <Compile Include="Areas\LinkArea\Models\CreateVM.cs" />
     <Compile Include="Areas\LinkArea\Models\DetailVM.cs" />
@@ -5366,6 +5370,15 @@
     <Content Include="Areas\SystemEntityArea\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\SystemEntityArea\Views\web.config" />
     <Content Include="Areas\DashboardArea\Views\Dashboard\IndexUser.cshtml" />
+    <Content Include="Areas\UserLinkArea\Views\UserLink\_CreatePartial.cshtml" />
+    <Content Include="Areas\UserLinkArea\Views\UserLink\_EditPartial.cshtml" />
+    <Content Include="Areas\UserLinkArea\Views\UserLink\_SearchPartial.cshtml" />
+    <Content Include="Areas\UserLinkArea\Views\UserLink\CheckImport.cshtml" />
+    <Content Include="Areas\UserLinkArea\Views\UserLink\Detail.cshtml" />
+    <Content Include="Areas\UserLinkArea\Views\UserLink\Import.cshtml" />
+    <Content Include="Areas\UserLinkArea\Views\UserLink\Index.cshtml" />
+    <Content Include="Areas\UserLinkArea\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\UserLinkArea\Views\web.config" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\modules\buocxuly.js" />
     <Content Include="Scripts\modules\luongxuly.js" />
@@ -5452,6 +5465,7 @@
     <Content Include="Views\Shared\_PopupQuenPass.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutEndUser.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <None Include="Web References\WebReference\apws.xsd">
       <SubType>Designer</SubType>
     </None>

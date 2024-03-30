@@ -60,7 +60,8 @@ namespace Service.EnvironmentEntityService
                             Name = EnvironmentEntitytbl.Name,
                             Code = EnvironmentEntitytbl.Code,
                             Order = EnvironmentEntitytbl.Order,
-                            Description = EnvironmentEntitytbl.Description
+                            Description = EnvironmentEntitytbl.Description,
+                            Active = EnvironmentEntitytbl.Active,
 
                         };
 

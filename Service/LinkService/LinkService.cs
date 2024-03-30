@@ -17,6 +17,7 @@ using Service.Constant;
 using Service.SystemEntityService;
 using Repository.SystemEntityRepository;
 using Repository.EnvironmentEntityRepository;
+using Repository.UserLinkRepository;
 
 
 
@@ -30,6 +31,7 @@ namespace Service.LinkService
         ILinkRepository _LinkRepository;
         private readonly ISystemEntityRepository _systemEntityRepository;
         private readonly IEnvironmentEntityRepository _EnvironmentEntityRepository;
+        private readonly IUserLinkRepository _userLinkRepository;
         ILog _loger;
         IMapper _mapper;
 
@@ -39,6 +41,7 @@ namespace Service.LinkService
         ILinkRepository LinkRepository,
         ISystemEntityRepository systemEntityRepository,
         IEnvironmentEntityRepository EnvironmentEntityRepository,
+        IUserLinkRepository userLinkRepository,
         ILog loger,
 
                 IMapper mapper
@@ -49,6 +52,7 @@ namespace Service.LinkService
             _LinkRepository = LinkRepository;
             this._systemEntityRepository = systemEntityRepository;
             this._EnvironmentEntityRepository = EnvironmentEntityRepository;
+            this._userLinkRepository = userLinkRepository;
             _loger = loger;
             _mapper = mapper;
 
@@ -80,7 +84,9 @@ namespace Service.LinkService
                             SystemId = Linktbl.SystemId,
                             Name = Linktbl.Name,
                             SystemEntity = system,
-                            EnvironmentEntity = environment
+                            EnvironmentEntity = environment,
+                            Description = Linktbl.Description,
+                            Ip = Linktbl.Ip,
                         };
 
             if (searchModel != null)
@@ -161,6 +167,7 @@ namespace Service.LinkService
                             Href = Linktbl.Href,
                             SystemId = Linktbl.SystemId,
                             Name = Linktbl.Name,
+                            Description = Linktbl.Description
                         };
 
 
@@ -192,12 +199,13 @@ namespace Service.LinkService
             return result;
         }
 
-        public List<EnvironmentEntityData> GetData()
+        public List<EnvironmentEntityData> GetData(long? userId)
         {
             var result = new List<EnvironmentEntityData>();
-            var envs = _EnvironmentEntityRepository.GetAllAsQueryable().OrderBy(x => x.Order).ToList();
-            var systems = _systemEntityRepository.GetAllAsQueryable().OrderBy(x => x.ThuTu).ToList();
+            var envs = _EnvironmentEntityRepository.GetAllAsQueryable().Where(x => x.Active).OrderBy(x => x.Order).ToList();
+            var systems = _systemEntityRepository.GetAllAsQueryable().Where(x => x.Active).OrderBy(x => x.ThuTu).ToList();
             var links = _LinkRepository.GetAllAsQueryable().Where(x => x.Active).ToList();
+            var userLinks = _userLinkRepository.FindBy(x => x.UserId == userId).Select(x => x.LinkId).ToList();
             foreach (var env in envs)
             {
                 var item = new EnvironmentEntityData()
@@ -210,7 +218,55 @@ namespace Service.LinkService
                     var itemSystem = new SystemEntityData()
                     {
                         SystemEntity = system,
-                        Links = links.Where(x => x.SystemId == system.Id).ToList()
+                        Links = links.Where(x => userLinks.Contains(x.Id) && x.SystemId == system.Id).Select(x => new LinkDto()
+                        {
+                            Name = x.Name,
+                            Href = x.Href,
+                            Active = x.Active,
+                            Description = x.Description,
+                            Ip = x.Ip,
+                            Id = x.Id,
+                        }).ToList()
+                    };
+                    if (itemSystem.Links.Any())
+                    {
+                        item.SystemEntityDatas.Add(itemSystem);
+                    }
+                }
+                result.Add(item);
+            }
+            return result;
+        }
+
+        public List<EnvironmentEntityData> GetConfig(long? userId)
+        {
+            var result = new List<EnvironmentEntityData>();
+            var envs = _EnvironmentEntityRepository.GetAllAsQueryable().OrderBy(x => x.Order).ToList();
+            var systems = _systemEntityRepository.GetAllAsQueryable().OrderBy(x => x.ThuTu).ToList();
+            var links = _LinkRepository.GetAllAsQueryable().ToList();
+            var userLinks = _userLinkRepository.Where(x => x.UserId == userId).Select(x => x.LinkId).ToList();
+            foreach (var env in envs)
+            {
+                var item = new EnvironmentEntityData()
+                {
+                    SystemEntityDatas = new List<SystemEntityData>(),
+                    Environment = env,
+                };
+                foreach (var system in systems.Where(x => x.EnvironmentId == env.Id))
+                {
+                    var itemSystem = new SystemEntityData()
+                    {
+                        SystemEntity = system,
+                        Links = links.Where(x => x.SystemId == system.Id).Select(x => new LinkDto()
+                        {
+                            Name = x.Name,
+                            Href = x.Href,
+                            Active = x.Active,
+                            Description = x.Description,
+                            Ip = x.Ip,
+                            Id = x.Id,
+                            Checked = userLinks.Contains(x.Id)
+                        }).ToList()
                     };
                     item.SystemEntityDatas.Add(itemSystem);
                 }

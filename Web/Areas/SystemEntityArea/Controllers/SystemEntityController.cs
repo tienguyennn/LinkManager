@@ -160,6 +160,7 @@ namespace Web.Areas.SystemEntityArea.Controllers
                     obj.EnvironmentId = model.EnvironmentId;
                     obj.Description = model.Description;
                     obj.ThuTu = model.ThuTu;
+                    obj.Active = model.Active;
                     _SystemEntityService.Update(obj);
 
                 }

@@ -5,7 +5,7 @@
 @using CommonHelper.String
 @using Service.AppUserService.Dto
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
     List<Service.LinkService.Dto.EnvironmentEntityData> datas = ViewBag.Data;
 }
 
@@ -27,6 +27,9 @@
         justify-content: space-between;
         align-items: center;
     }
+
+
+
 
     .logo {
         font-size: 24px;
@@ -57,8 +60,12 @@
         height: auto;
     }
 
-    .boxes-container {
+    .main-content {
         display: flex;
+        height: calc(100% - 50px);
+    }
+
+    .boxes-container {
         justify-content: center;
         flex-wrap: wrap;
         margin-top: 30px;
@@ -69,7 +76,7 @@
         border: 1px solid #ccc;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 20px;
+        padding: 16px;
         margin: 10px;
         width: 200px;
         text-align: center;
@@ -81,7 +88,7 @@
     }
 
         .box-icon img {
-            width: 50px;
+            width: 30px;
         }
 
     .box-text {
@@ -111,7 +118,7 @@
     }
 
     .content-container {
-        height: 100%;
+        height: calc(100% - 24px);
         border: 1px solid #ccc;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -119,6 +126,7 @@
         background-color: #ffffffaa;
         flex-grow: 1;
         overflow-y: auto;
+        margin: 12px;
     }
 
         .content-container .box-system {
@@ -145,6 +153,13 @@
                 .content-container .link a:hover {
                     color: #007bff;
                 }
+
+
+        .content-container small {
+            display: block;
+            font-style: italic;
+            padding-left: 24px;
+        }
 
     .box.active {
         background-color: #007bff;
@@ -211,7 +226,7 @@
         width: 50%;
         padding: 8px;
         padding-left: 12px;
-        border-radius: 4px;
+        border-radius: 6px;
         outline: none !important;
         border: 1px solid #ccc;
     }
@@ -221,64 +236,66 @@
     var active = true;
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Link manager</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">Link manager</div>
-            <div class="nav-links">
-                <a href="/AccountAdmin/Logoff">Logout</a>
-            </div>
-        </nav>
-    </header>
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Link manager</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="logo">Link manager</div>
+                <div class="nav-links">
+                    <a href="/AccountAdmin/Logoff">Logout</a>
+                </div>
+            </nav>
+        </header>*@
 
-    <main>
-        <div class="container">
-            <div class="boxes-container">
-                @foreach (var item in datas)
-                {
-                    <div class="box @(active ? "active" : "")" id="box-@item.Environment.Id">
-                        <div class="box-icon">
-                            <img src="~/Content/Img/network.png" />
-                        </div>
-                        <div class="box-text">@item.Environment.Name</div>
-                        @*<div class="box-description">Raise new incident.</div>*@
+<main>
+    <div class="main-content">
+        <div class="boxes-container">
+            @foreach (var item in datas)
+            {
+                <div class="box @(active ? "active" : "")" id="box-@item.Environment.Id">
+                    <div class="box-icon">
+                        <img src="~/Content/Img/network.png" />
                     </div>
-                    active = false;
-                }
-            </div>
-            <div class="content-container">
-                @{active = true;}
-                @foreach (var item in datas)
-                {
-                    <div class="box-environment @(active ? "active":"") box-@item.Environment.Id search-@item.Environment.Id">
-                        <input placeholder="search" id="search-@item.Environment.Id" class="search-input" />
-                        @foreach (var system in item.SystemEntityDatas)
-                        {
-                            <div class="box-system system-@system.SystemEntity.Id">
-                                <div class="system-title"> @system.SystemEntity.Name</div>
-                                @foreach (var link in system.Links)
-                                {
-                                    <div class="link">
-                                        <a href="@link.Href" target="_blank" data-name="@link.Name" data-system="@system.SystemEntity.Id">@link.Name</a>
-                                    </div>
-                                }
-                            </div>
-                        }
-                    </div>
-                    active = false;
-                }
-            </div>
+                    <div class="box-text">@item.Environment.Name</div>
+                    @*<div class="box-description">Raise new incident.</div>*@
+                </div>
+                active = false;
+            }
         </div>
+        <div class="content-container">
+            @{active = true;}
+            @foreach (var item in datas)
+            {
+                <div class="box-environment @(active ? "active":"") box-@item.Environment.Id search-@item.Environment.Id">
+                    <input placeholder="search" id="search-@item.Environment.Id" class="search-input" />
+                    @foreach (var system in item.SystemEntityDatas)
+                    {
+                        <div class="box-system system-@system.SystemEntity.Id">
+                            <div class="system-title"> @system.SystemEntity.Name</div>
+                            @foreach (var link in system.Links)
+                            {
+                                <div class="link">
+                                    <a href="@link.Href" target="_blank" data-name="@link.Name" data-system="@system.SystemEntity.Id">@link.Name</a>
+                                    <small>@link.Description</small>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+                active = false;
+            }
+        </div>
+    </div>
 
-    </main>
-</body>
-</html>
+</main>
+
+@*</body>
+    </html>*@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
 
@@ -316,12 +333,12 @@
                     $(this).hide();
                 }
             })
-        } 
+        }
         else {
             $(`.${id} .box-system`).show();
             $(`.${id} .link a`).show();
         }
-      
+
     }
 
     $('.search-input').on("input", debounce(function (e) {

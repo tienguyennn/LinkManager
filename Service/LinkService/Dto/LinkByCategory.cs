@@ -21,6 +21,6 @@ namespace Service.LinkService.Dto
     public class SystemEntityData
     {
         public SystemEntity SystemEntity { get; set; }
-        public List<Link> Links { get; set; }
+        public List<LinkDto> Links { get; set; }
     }
 }

@@ -27,6 +27,7 @@ namespace Model
         public DbSet<News> News { get; set; }
         public DbSet<EnvironmentEntity> EnvironmentEntity { get; set; }
         public DbSet<SystemEntity> SystemEntity { get; set; }
+        public DbSet<UserLink> UserLink { get; set; }
        
         public static HinetContext Create()
         {

@@ -73,7 +73,7 @@ namespace Service.SystemEntityService
                             DeleteId = SystemEntitytbl.DeleteId,
                             EnvironmentId = SystemEntitytbl.EnvironmentId,
                             Name = SystemEntitytbl.Name,
-                            Image = SystemEntitytbl.Image,
+                            Active = SystemEntitytbl.Active,
                             Description = SystemEntitytbl.Description,
                             ThuTu = SystemEntitytbl.ThuTu,
                             EnvironmentEntity = EnvironmentEntityId_EnvironmentEntityInfo
@@ -156,7 +156,7 @@ namespace Service.SystemEntityService
                             DeleteId = SystemEntitytbl.DeleteId,
                             EnvironmentId = SystemEntitytbl.EnvironmentId,
                             Name = SystemEntitytbl.Name,
-                            Image = SystemEntitytbl.Image,
+                            Active = SystemEntitytbl.Active,
                             Description = SystemEntitytbl.Description,
                             ThuTu = SystemEntitytbl.ThuTu,
 
@@ -187,9 +187,10 @@ namespace Service.SystemEntityService
                             DeleteId = SystemEntitytbl.DeleteId,
                             EnvironmentId = SystemEntitytbl.EnvironmentId,
                             Name = SystemEntitytbl.Name,
-                            Image = SystemEntitytbl.Image,
+                            Active = SystemEntitytbl.Active,
                             Description = SystemEntitytbl.Description,
-                            ThuTu = SystemEntitytbl.ThuTu
+                            ThuTu = SystemEntitytbl.ThuTu,
+
                         });
             var result = query.ToList();
             return result;

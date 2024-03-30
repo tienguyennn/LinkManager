@@ -16,6 +16,7 @@ namespace Service.LinkService
         Link GetById(long id);
         LinkDto GetDtoById(long id);
         List<LinkDto> GetByIds(List<long> ids);
-        List<EnvironmentEntityData> GetData();
+        List<EnvironmentEntityData> GetData(long? userId);
+        List<EnvironmentEntityData> GetConfig(long? userId);
     }
 }

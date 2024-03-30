@@ -343,6 +343,10 @@
     <Compile Include="EnvironmentEntityService\Dto\EnvironmentEntityDto.cs" />
     <Compile Include="EnvironmentEntityService\Dto\EnvironmentEntitySearchDto.cs" />
     <Compile Include="EnvironmentEntityService\IEnvironmentEntityService.cs" />
+    <Compile Include="UserLinkService\Dto\UserLinkDto.cs" />
+    <Compile Include="UserLinkService\Dto\UserLinkSearchDto.cs" />
+    <Compile Include="UserLinkService\IUserLinkService.cs" />
+    <Compile Include="UserLinkService\UserLinkService.cs" />
     <Compile Include="LinkService\Dto\LinkByCategory.cs" />
     <Compile Include="NewsService\Dto\NewsDto.cs" />
     <Compile Include="NewsService\Dto\NewsExportDto.cs" />

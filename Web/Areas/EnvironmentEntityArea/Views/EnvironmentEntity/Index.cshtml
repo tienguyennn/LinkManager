@@ -24,6 +24,22 @@
     </a>
     <a href="javascript:void(0)" onclick="CreateAction('/EnvironmentEntityArea/EnvironmentEntity/Create')" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Thêm mới</a>
 }
+<style>
+    .active-1,
+    .active-0 {
+        border-radius: 12px;
+        padding: 8px;
+        color: white;
+    }
+
+    .active-0 {
+        background-color: green;
+    }
+
+    .active-1 {
+        background-color: red;
+    }
+</style>
 @Html.Partial("_SearchPartial")
 
 <div id="tbl-EnvironmentEntity" class="hntbl-cover table-scroll">
@@ -37,7 +53,7 @@
                     <th>Mã </th>
                     <th>Thứ tự</th>
                     <th>Ghi chú</th>
-
+                    <th>Hoạt động</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -106,8 +122,14 @@ result += "<li><a href='javascript:void(0)' onclick='EditAction(\"/EnvironmentEn
 					content: function (data) {
 					return data.Description
 				}
-				},
-
+                },
+                {
+                isSort: false,
+                nameModel: 'Active',
+                content: function (data) {
+                    return data.Active ? `<span class='active-0'>Hoạt động</span>` : `<span class='active-1'>Không hoạt động</span>`;
+                }
+	}
 
             ];
 

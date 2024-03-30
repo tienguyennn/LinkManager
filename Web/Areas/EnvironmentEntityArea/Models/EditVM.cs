@@ -13,7 +13,7 @@ namespace Web.Areas.EnvironmentEntityArea.Models
         public string Code { get; set; }
         public int Order { get; set; }
         public string Description { get; set; }
-
+        public bool Active { get; set; }
 
     }
 }

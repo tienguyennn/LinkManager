@@ -1,0 +1,100 @@
+@{
+    ViewBag.Title = "link";
+    Layout = "~/Views/Shared/_LayoutAce.cshtml";
+    ViewBag.ModuleName = "Quản lý link";
+    ViewBag.PageName = "Danh sách link";
+    ViewBag.ModuleCode = "Link_index";
+
+}
+@using Model.IdentityEntities;
+@using Model.Entities;
+@using Newtonsoft.Json;
+@using Service.Common;
+@using Service.LinkService.Dto;
+@model List<EnvironmentEntityData>
+@{
+}
+
+@section ActionBarRight{
+
+    <a href="javascript:void(0)" onclick="ShowAll()" class="btn btn-primary btn-sm">Xem tất cả</a>
+    <a href="javascript:void(0)" onclick="HideAll()" class="btn btn-primary btn-sm">Ẩn tất cả</a>
+    <a href="javascript:void(0)" onclick="Save()" class="btn btn-primary btn-sm">Lưu</a>
+}
+<style>
+    .box-toggle button {
+        width: 100%;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #0995ed;
+        color: #0995ed;
+    }
+
+        .box-toggle button[aria-expanded="true"] {
+            background: #0995ed;
+            color: white;
+        }
+
+    .box-toggle .item-collapse {
+        padding: 12px;
+    }
+</style>
+@using (Ajax.BeginForm("Save", "UserLink", new { @area = "UserLinkArea" }, new AjaxOptions()
+{
+    HttpMethod = "POST",
+    OnFailure = "AjaxFormError",
+    OnSuccess = "AjaxSaveSuccess",
+}, new { id = "createUserLinkForm", enctype = "multipart/form-data" }))
+{
+    @Html.Hidden("UserId", (long?)ViewBag.UserId)
+    foreach (var item in Model)
+    {
+        <div class="col-sm-3 box-toggle">
+            <button data-toggle="collapse" type="button" data-target="#evironment-@item.Environment.Id">@item.Environment.Name</button>
+            <div id="evironment-@item.Environment.Id" class="collapse item-collapse">
+                @foreach (var system in item.SystemEntityDatas)
+                {
+                    <button data-toggle="collapse" type="button" data-target="#system-@system.SystemEntity.Id">@system.SystemEntity.Name</button>
+
+                    <div id="system-@system.SystemEntity.Id" class="collapse item-collapse">
+                        @foreach (var link in system.Links)
+                        {
+
+                            <div class="form-group">
+                                <input id="link-@link.Id" name="link-@link.Id" type="checkbox" @(link.Checked ? "checked" : "") />
+                                <label for="link-@link.Id">
+                                    @link.Href
+                                    <small>
+                                        @(!string.IsNullOrEmpty(link.Description) ? "("+link.Description+")" : "")
+                                    </small>
+                                </label>
+                            </div>
+                        }
+
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+
+    }
+}
+
+<script>
+    function ShowAll() {
+        $('.box-toggle button').attr('aria-expanded', true);
+        $('.item-collapse').addClass('in')
+    }
+    function HideAll() {
+        $('.box-toggle button').attr('aria-expanded', false);
+        $('.item-collapse').removeClass('in')
+    }
+    function Save() {
+        $('#createUserLinkForm').submit();
+    }
+    function AjaxSaveSuccess() {
+        NotiSuccess("Lưu thành công");
+    }
+</script>

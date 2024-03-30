@@ -1,0 +1,123 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <style>
+        nav {
+            background-color: #ededed;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo img {
+            height: 32px;
+        }
+
+        .menu {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+            .menu li {
+                margin-left: 16px;
+                position: relative;
+            }
+
+                .menu li a {
+                    color: black;
+                    text-decoration: none;
+                    padding: 8px 12px;
+                    font-size: 14px;
+                }
+
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 100px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: 0;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lang:hover .lang-dropdown {
+            display: block;
+        }
+
+        .lang-dropdown li a {
+            color: #005081;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+        }
+
+            .search input {
+                border: none;
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+
+            .search button {
+                background-color: white;
+                color: #005081;
+                border: none;
+                padding: 6px 12px;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+        .online-banking a {
+            background-color: #d32f2f;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+  
+    </style>
+    <nav>
+        <div class="top-menu">
+            <img src="~/Content/Img/logo.png" />
+        </div>
+        <div class="bottom-menu">
+            <ul class="menu">
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">DISCOVER OUR PRODUCTS</a></li>
+                <li><a href="#">APPLY ONLINE</a></li>
+                <li><a href="#">PROMOTIONS</a></li>
+                <li><a href="#">TRACK MY APPLICATION</a></li>
+                <li class="lang">
+                    <a href="#">English</a>
+                    <ul class="lang-dropdown">
+                        <li><a href="#">Việt nam</a></li>
+                        <li><a href="#">中文</a></li>
+                    </ul>
+                </li>
+                <li class="online-banking"><a href="/AccountAdmin/Logoff">LOGOUT</a></li>
+            </ul>
+        </div>
+
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

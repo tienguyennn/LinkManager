@@ -3,12 +3,10 @@
 
 namespace Model.Entities
 {
-    [Table("Link")]
-    public class Link : AuditableEntity<long>
+    [Table("UserLink")]
+    public class UserLink : AuditableEntity<long>
     {
-        public string Name { get; set; }
-        public string Href { get; set; }
-        public long? SystemId { get; set; }
-        public bool Active { get; set; }
+        public long? LinkId { get; set; }
+        public long? UserId { get; set; }
     }
 }
